@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Applications - Property Management</title>
+  </head>
+
+  <body
+    x-data="{ page: 'applications', 'loaded': true, 'darkMode': true, 'stickyMenu': false, 'sidebarToggle': false, 'scrollTop': false }"
+    x-init="
+         darkMode = JSON.parse(localStorage.getItem('darkMode'));
+         $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(value)))"
+    :class="{'dark text-bodydark bg-boxdark-2': darkMode === true}"
+  >
+    <!-- ===== Preloader Start ===== -->
+    <include src="./partials/preloader.html"></include>
+    <!-- ===== Preloader End ===== -->
+
+    <!-- ===== Page Wrapper Start ===== -->
+    <div class="flex h-screen overflow-hidden">
+      <!-- ===== Sidebar Start ===== -->
+      <include src="./partials/sidebar.html"></include>
+      <!-- ===== Sidebar End ===== -->
+
+      <!-- ===== Content Area Start ===== -->
+      <div
+        class="relative flex flex-1 flex-col overflow-y-auto overflow-x-hidden"
+      >
+        <!-- ===== Header Start ===== -->
+        <include src="./partials/header.html" />
+        <!-- ===== Header End ===== -->
+
+        <!-- ===== Main Content Start ===== -->
+        <main>
+          <div class="mx-auto max-w-screen-2xl p-4 md:p-6 2xl:p-10">
+            <div class="mx-auto max-w-270">
+              <!-- Breadcrumb Start -->
+              <div
+                class="mb-6 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between"
+              >
+                <div>
+                  <h2
+                    class="text-title-md2 font-bold text-black dark:text-white"
+                  >
+                    Applications
+                  </h2>
+
+                  <nav class="mt-2">
+                    <ol class="flex items-center gap-2">
+                      <li>
+                        <a class="font-medium" href="index.html">Dashboard /</a>
+                      </li>
+                      <li class="font-medium text-primary">Applications</li>
+                    </ol>
+                  </nav>
+                </div>
+                <div>
+                  <button
+                    type="button"
+                    class="inline-flex items-center gap-x-2 rounded-lg border border-transparent bg-blue-600 py-3 px-4 text-sm font-medium text-white hover:bg-blue-700 focus:bg-blue-700 focus:outline-none disabled:pointer-events-none disabled:opacity-50"
+                  >
+                    Add Application
+                    <?xml version="1.0" ?><!DOCTYPE svg  PUBLIC '-//W3C//DTD SVG 1.1//EN'  'http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd'><svg enable-background="new 0 0 50 50" height="24px" id="Layer_1" version="1.1" viewBox="0 0 50 50" width="24px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><rect fill="none" height="24" width="24"/><line fill="none" stroke="#ffffff" stroke-miterlimit="10" stroke-width="4" x1="9" x2="41" y1="25" y2="25"/><line fill="none" stroke="#ffffff" stroke-miterlimit="10" stroke-width="4" x1="25" x2="25" y1="9" y2="41"/></svg>
+                  </button>
+                </div>
+              </div>
+              <!-- Breadcrumb End -->
+
+              <!-- ====== Applications Section Start -->
+              <div class="grid grid-cols-4 gap-4 gap-y-6">
+                <div
+                  class="flex flex-col items-center rounded-xl  bg-white p-6 shadow-sm dark:border-neutral-700 dark:bg-neutral-900 dark:shadow-neutral-700/70"
+                >
+                <div class="w-full flex justify-between items-center">
+                  <span class="inline-flex items-center gap-x-1.5 py-1.5 px-3 rounded-full text-xs font-medium bg-teal-100 text-teal-800 dark:bg-teal-800/30 dark:text-teal-500">Approved</span>
+                  <span class="text-boxdark font-extrabold">...</span>
+                </div>
+                  <img
+                    class=" h-24 w-24 rounded-full border-4 border-white shadow-lg object-cover"
+                    src="https://images.unsplash.com/photo-1680868543815-b8666dba60f7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=320&q=80"
+                    alt="Contact Profile Image"
+                  />
+                  <div class="mt-4 text-center">
+                    <h3 class="text-gray-800 text-lg font-bold dark:text-white">
+                      John Doe
+                    </h3>
+                    <p class="text-gray-500 dark:text-neutral-400">
+                      Applied on Aug. 23, 2023
+                    </p>
+                    <p class="mt-4 text-gray-800  dark:text-neutral-800 font-bold">
+                      233 Broadway
+                    </p>
+                  </div>
+                  <a
+                    class="mt-4 inline-flex items-center justify-center gap-x-2 rounded-lg border border-transparent bg-blue-600 py-2 px-4 text-sm font-medium text-white hover:bg-blue-700 focus:bg-blue-700 focus:outline-none disabled:pointer-events-none disabled:opacity-50"
+                    href="#"
+                  >
+                    View Application
+                  </a>
+                </div>
+                <div
+                  class="flex flex-col items-center rounded-xl  bg-white p-6 shadow-sm dark:border-neutral-700 dark:bg-neutral-900 dark:shadow-neutral-700/70"
+                >
+                <div class="w-full flex justify-between items-center">
+                  <span class="inline-flex items-center gap-x-1.5 py-1.5 px-3 rounded-full text-xs font-medium bg-teal-100 text-teal-800 dark:bg-teal-800/30 dark:text-teal-500">Approved</span>
+                  <span class="text-boxdark font-extrabold">...</span>
+                </div>
+                  <img
+                    class=" h-24 w-24 rounded-full border-4 border-white shadow-lg object-cover"
+                    src="https://images.unsplash.com/photo-1680868543815-b8666dba60f7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=320&q=80"
+                    alt="Contact Profile Image"
+                  />
+                  <div class="mt-4 text-center">
+                    <h3 class="text-gray-800 text-lg font-bold dark:text-white">
+                      John Doe
+                    </h3>
+                    <p class="text-gray-500 dark:text-neutral-400">
+                      Applied on Aug. 23, 2023
+                    </p>
+                    <p class="mt-4 text-gray-800  dark:text-neutral-800 font-bold">
+                      233 Broadway
+                    </p>
+                  </div>
+                  <a
+                    class="mt-4 inline-flex items-center justify-center gap-x-2 rounded-lg border border-transparent bg-blue-600 py-2 px-4 text-sm font-medium text-white hover:bg-blue-700 focus:bg-blue-700 focus:outline-none disabled:pointer-events-none disabled:opacity-50"
+                    href="#"
+                  >
+                    View Application
+                  </a>
+                </div>
+                <div
+                  class="flex flex-col items-center rounded-xl  bg-white p-6 shadow-sm dark:border-neutral-700 dark:bg-neutral-900 dark:shadow-neutral-700/70"
+                >
+                <div class="w-full flex justify-between items-center">
+                  <span class="inline-flex items-center gap-x-1.5 py-1.5 px-3 rounded-full text-xs font-medium bg-red-100 text-red-800 dark:bg-red-800/30 dark:text-red-500">New</span>
+                  <span class="text-boxdark font-extrabold">...</span>
+                </div>
+                  <img
+                    class=" h-24 w-24 rounded-full border-4 border-white shadow-lg object-cover"
+                    src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=80"
+                    alt="Contact Profile Image"
+                  />
+                  <div class="mt-4 text-center">
+                    <h3 class="text-gray-800 text-lg font-bold dark:text-white">
+                      John Doe
+                    </h3>
+                    <p class="text-gray-500 dark:text-neutral-400">
+                      Applied on Aug. 23, 2023
+                    </p>
+                    <p class="mt-4 text-gray-800  dark:text-neutral-800 font-bold">
+                      233 Broadway
+                    </p>
+                  </div>
+                  <a
+                    class="mt-4 inline-flex items-center justify-center gap-x-2 rounded-lg border border-transparent bg-blue-600 py-2 px-4 text-sm font-medium text-white hover:bg-blue-700 focus:bg-blue-700 focus:outline-none disabled:pointer-events-none disabled:opacity-50"
+                    href="#"
+                  >
+                    View Application
+                  </a>
+                </div>
+                <div
+                  class="flex flex-col items-center rounded-xl  bg-white p-6 shadow-sm dark:border-neutral-700 dark:bg-neutral-900 dark:shadow-neutral-700/70"
+                >
+                <div class="w-full flex justify-between items-center">
+                  <span class="inline-flex items-center gap-x-1.5 py-1.5 px-3 rounded-full text-xs font-medium bg-teal-100 text-teal-800 dark:bg-teal-800/30 dark:text-teal-500">Approved</span>
+                  <span class="text-boxdark font-extrabold">...</span>
+                </div>
+                  <img
+                    class=" h-24 w-24 rounded-full border-4 border-white shadow-lg object-cover"
+                    src="https://images.unsplash.com/photo-1680868543815-b8666dba60f7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=320&q=80"
+                    alt="Contact Profile Image"
+                  />
+                  <div class="mt-4 text-center">
+                    <h3 class="text-gray-800 text-lg font-bold dark:text-white">
+                      John Doe
+                    </h3>
+                    <p class="text-gray-500 dark:text-neutral-400">
+                      Applied on Aug. 23, 2023
+                    </p>
+                    <p class="mt-4 text-gray-800  dark:text-neutral-800 font-bold">
+                      233 Broadway
+                    </p>
+                  </div>
+                  <a
+                    class="mt-4 inline-flex items-center justify-center gap-x-2 rounded-lg border border-transparent bg-blue-600 py-2 px-4 text-sm font-medium text-white hover:bg-blue-700 focus:bg-blue-700 focus:outline-none disabled:pointer-events-none disabled:opacity-50"
+                    href="#"
+                  >
+                    View Application
+                  </a>
+                </div>
+                <div
+                  class="flex flex-col items-center rounded-xl  bg-white p-6 shadow-sm dark:border-neutral-700 dark:bg-neutral-900 dark:shadow-neutral-700/70"
+                >
+                <div class="w-full flex justify-between items-center">
+                  <span class="inline-flex items-center gap-x-1.5 py-1.5 px-3 rounded-full text-xs font-medium bg-teal-100 text-teal-800 dark:bg-teal-800/30 dark:text-teal-500">Approved</span>
+                  <span class="text-boxdark font-extrabold">...</span>
+                </div>
+                  <img
+                    class=" h-24 w-24 rounded-full border-4 border-white shadow-lg object-cover"
+                    src="https://images.unsplash.com/photo-1680868543815-b8666dba60f7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=320&q=80"
+                    alt="Contact Profile Image"
+                  />
+                  <div class="mt-4 text-center">
+                    <h3 class="text-gray-800 text-lg font-bold dark:text-white">
+                      John Doe
+                    </h3>
+                    <p class="text-gray-500 dark:text-neutral-400">
+                      Applied on Aug. 23, 2023
+                    </p>
+                    <p class="mt-4 text-gray-800  dark:text-neutral-800 font-bold">
+                      233 Broadway
+                    </p>
+                  </div>
+                  <a
+                    class="mt-4 inline-flex items-center justify-center gap-x-2 rounded-lg border border-transparent bg-blue-600 py-2 px-4 text-sm font-medium text-white hover:bg-blue-700 focus:bg-blue-700 focus:outline-none disabled:pointer-events-none disabled:opacity-50"
+                    href="#"
+                  >
+                    View Application
+                  </a>
+                </div>
+                <div
+                  class="flex flex-col items-center rounded-xl  bg-white p-6 shadow-sm dark:border-neutral-700 dark:bg-neutral-900 dark:shadow-neutral-700/70"
+                >
+                <div class="w-full flex justify-between items-center">
+                  <span class="inline-flex items-center gap-x-1.5 py-1.5 px-3 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800 dark:bg-yellow-800/30 dark:text-yellow-500">In review</span>
+                  <span class="text-boxdark font-extrabold">...</span>
+                </div>
+                  <img
+                    class=" h-24 w-24 rounded-full border-4 border-white shadow-lg object-cover"
+                    src="https://images.unsplash.com/photo-1680868543815-b8666dba60f7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=320&q=80"
+                    alt="Contact Profile Image"
+                  />
+                  <div class="mt-4 text-center">
+                    <h3 class="text-gray-800 text-lg font-bold dark:text-white">
+                      John Doe
+                    </h3>
+                    <p class="text-gray-500 dark:text-neutral-400">
+                      Applied on Aug. 23, 2023
+                    </p>
+                    <p class="mt-4 text-gray-800  dark:text-neutral-800 font-bold">
+                      233 Broadway
+                    </p>
+                  </div>
+                  <a
+                    class="mt-4 inline-flex items-center justify-center gap-x-2 rounded-lg border border-transparent bg-blue-600 py-2 px-4 text-sm font-medium text-white hover:bg-blue-700 focus:bg-blue-700 focus:outline-none disabled:pointer-events-none disabled:opacity-50"
+                    href="#"
+                  >
+                    View Application
+                  </a>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </main>
+        <!-- ===== Main Content End ===== -->
+      </div>
+      <!-- ===== Content Area End ===== -->
+    </div>
+    <!-- ===== Page Wrapper End ===== -->
+  </body>
+</html>

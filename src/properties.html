@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Properties - Property Management</title>
+  </head>
+
+  <body
+    x-data="{ page: 'properties', 'loaded': true, 'darkMode': true, 'stickyMenu': false, 'sidebarToggle': false, 'scrollTop': false }"
+    x-init="
+         darkMode = JSON.parse(localStorage.getItem('darkMode'));
+         $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(value)))"
+    :class="{'dark text-bodydark bg-boxdark-2': darkMode === true}"
+  >
+    <!-- ===== Preloader Start ===== -->
+    <include src="./partials/preloader.html"></include>
+    <!-- ===== Preloader End ===== -->
+
+    <!-- ===== Page Wrapper Start ===== -->
+    <div class="flex h-screen overflow-hidden">
+      <!-- ===== Sidebar Start ===== -->
+      <include src="./partials/sidebar.html"></include>
+      <!-- ===== Sidebar End ===== -->
+
+      <!-- ===== Content Area Start ===== -->
+      <div
+        class="relative flex flex-1 flex-col overflow-y-auto overflow-x-hidden"
+      >
+        <!-- ===== Header Start ===== -->
+        <include src="./partials/header.html" />
+        <!-- ===== Header End ===== -->
+
+        <!-- ===== Main Content Start ===== -->
+        <main>
+          <div class="mx-auto max-w-screen-2xl p-4 md:p-6 2xl:p-10">
+            <div class="mx-auto max-w-270">
+              <!-- Breadcrumb Start -->
+              <div
+                class="mb-6 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between"
+              >
+                <div>
+                  <h2
+                    class="text-title-md2 font-bold text-black dark:text-white"
+                  >
+                    Properties
+                  </h2>
+
+                  <nav class="mt-2">
+                    <ol class="flex items-center gap-2">
+                      <li>
+                        <a class="font-medium" href="index.html">Dashboard /</a>
+                      </li>
+                      <li class="font-medium text-primary">Properties</li>
+                    </ol>
+                  </nav>
+                </div>
+                <div>
+                  <a
+                    href="add-property.html"
+                    class="inline-flex items-center gap-x-2 rounded-lg border border-transparent bg-blue-600 py-3 px-4 text-sm font-medium text-white hover:bg-blue-700 focus:bg-blue-700 focus:outline-none disabled:pointer-events-none disabled:opacity-50"
+                  >
+                    Add Property
+                    <?xml version="1.0" ?><!DOCTYPE svg  PUBLIC '-//W3C//DTD SVG 1.1//EN'  'http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd'><svg enable-background="new 0 0 50 50" height="24px" id="Layer_1" version="1.1" viewBox="0 0 50 50" width="24px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><rect fill="none" height="24" width="24"/><line fill="none" stroke="#ffffff" stroke-miterlimit="10" stroke-width="4" x1="9" x2="41" y1="25" y2="25"/><line fill="none" stroke="#ffffff" stroke-miterlimit="10" stroke-width="4" x1="25" x2="25" y1="9" y2="41"/></svg>
+                  </a>
+                </div>
+              </div>
+              <!-- Breadcrumb End -->
+
+              <!-- ====== Properties Section Start -->
+              <div class="grid grid-cols-2 gap-4">
+                <div
+                  class="rounded-xl p-2 bg-white shadow-sm dark:border-neutral-700 dark:bg-neutral-900 dark:shadow-neutral-700/70 sm:flex"
+                >
+                  <div
+                    class="sm:rounded-s-xl md:rounded-se-none relative w-full shrink-0 overflow-hidden rounded sm:w-48 sm:max-w-60 md:max-w-xs"
+                  >
+                    <img
+                      class="size-full start-0 absolute top-0 h-full w-full object-cover"
+                      src="https://images.unsplash.com/photo-1680868543815-b8666dba60f7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=560&q=80"
+                      alt="Property Image"
+                    />
+                  </div>
+                  <div class="flex flex-1 flex-wrap p-4 sm:p-6">
+                    <div class="flex w-full flex-col">
+                      <h3
+                        class="text-gray-800 text-lg font-bold dark:text-white"
+                      >
+                        Property Name
+                      </h3>
+                      <p
+                        class="text-gray-600 mt-1 text-sm font-medium dark:text-neutral-400"
+                      >
+                        Property Location
+                      </p>
+                      <p
+                        class="text-gray-500 mt-1 text-sm dark:text-neutral-400"
+                      >
+                        Property Type
+                      </p>
+                      <div
+                        class="text-gray-600 mt-4 grid w-full grid-cols-4 gap-2 text-sm dark:text-neutral-400"
+                      >
+                        <p class="text-xs">Amenity 1</p>
+                        <p class="text-xs">Amenity 2</p>
+                        <p class="text-xs">Amenity 3</p>
+                        <p class="text-xs">Amenity 4</p>
+                      </div>
+                      <div class="mt-4 w-full text-end">
+                        <a href="view-property.html" class="text-blue-500 hover:underline"
+                          >View</a
+                        >
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="rounded-xl p-2 bg-white shadow-sm dark:border-neutral-700 dark:bg-neutral-900 dark:shadow-neutral-700/70 sm:flex"
+                >
+                  <div
+                    class="sm:rounded-s-xl md:rounded-se-none relative w-full shrink-0 overflow-hidden rounded sm:w-48 sm:max-w-60 md:max-w-xs"
+                  >
+                    <img
+                      class="size-full start-0 absolute top-0 h-full w-full object-cover"
+                      src="https://images.unsplash.com/photo-1680868543815-b8666dba60f7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=560&q=80"
+                      alt="Property Image"
+                    />
+                  </div>
+                  <div class="flex flex-1 flex-wrap p-4 sm:p-6">
+                    <div class="flex w-full flex-col">
+                      <h3
+                        class="text-gray-800 text-lg font-bold dark:text-white"
+                      >
+                        Property Name
+                      </h3>
+                      <p
+                        class="text-gray-600 mt-1 text-sm font-medium dark:text-neutral-400"
+                      >
+                        Property Location
+                      </p>
+                      <p
+                        class="text-gray-500 mt-1 text-sm dark:text-neutral-400"
+                      >
+                        Property Type
+                      </p>
+                      <div
+                        class="text-gray-600 mt-4 grid w-full grid-cols-4 gap-2 text-sm dark:text-neutral-400"
+                      >
+                        <p class="text-xs">Amenity 1</p>
+                        <p class="text-xs">Amenity 2</p>
+                        <p class="text-xs">Amenity 3</p>
+                        <p class="text-xs">Amenity 4</p>
+                      </div>
+                      <div class="mt-4 w-full text-end">
+                        <a href="view-property.html" class="text-blue-500 hover:underline"
+                          >View</a
+                        >
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="rounded-xl p-2 bg-white shadow-sm dark:border-neutral-700 dark:bg-neutral-900 dark:shadow-neutral-700/70 sm:flex"
+                >
+                  <div
+                    class="sm:rounded-s-xl md:rounded-se-none relative w-full shrink-0 overflow-hidden rounded sm:w-48 sm:max-w-60 md:max-w-xs"
+                  >
+                    <img
+                      class="size-full start-0 absolute top-0 h-full w-full object-cover"
+                      src="https://images.unsplash.com/photo-1680868543815-b8666dba60f7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=560&q=80"
+                      alt="Property Image"
+                    />
+                  </div>
+                  <div class="flex flex-1 flex-wrap p-4 sm:p-6">
+                    <div class="flex w-full flex-col">
+                      <h3
+                        class="text-gray-800 text-lg font-bold dark:text-white"
+                      >
+                        Property Name
+                      </h3>
+                      <p
+                        class="text-gray-600 mt-1 text-sm font-medium dark:text-neutral-400"
+                      >
+                        Property Location
+                      </p>
+                      <p
+                        class="text-gray-500 mt-1 text-sm dark:text-neutral-400"
+                      >
+                        Property Type
+                      </p>
+                      <div
+                        class="text-gray-600 mt-4 grid w-full grid-cols-4 gap-2 text-sm dark:text-neutral-400"
+                      >
+                        <p class="text-xs">Amenity 1</p>
+                        <p class="text-xs">Amenity 2</p>
+                        <p class="text-xs">Amenity 3</p>
+                        <p class="text-xs">Amenity 4</p>
+                      </div>
+                      <div class="mt-4 w-full text-end">
+                        <a href="view-property.html" class="text-blue-500 hover:underline"
+                          >View</a
+                        >
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="rounded-xl p-2 bg-white shadow-sm dark:border-neutral-700 dark:bg-neutral-900 dark:shadow-neutral-700/70 sm:flex"
+                >
+                  <div
+                    class="sm:rounded-s-xl md:rounded-se-none relative w-full shrink-0 overflow-hidden rounded sm:w-48 sm:max-w-60 md:max-w-xs"
+                  >
+                    <img
+                      class="size-full start-0 absolute top-0 h-full w-full object-cover"
+                      src="https://images.unsplash.com/photo-1680868543815-b8666dba60f7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=560&q=80"
+                      alt="Property Image"
+                    />
+                  </div>
+                  <div class="flex flex-1 flex-wrap p-4 sm:p-6">
+                    <div class="flex w-full flex-col">
+                      <h3
+                        class="text-gray-800 text-lg font-bold dark:text-white"
+                      >
+                        Property Name
+                      </h3>
+                      <p
+                        class="text-gray-600 mt-1 text-sm font-medium dark:text-neutral-400"
+                      >
+                        Property Location
+                      </p>
+                      <p
+                        class="text-gray-500 mt-1 text-sm dark:text-neutral-400"
+                      >
+                        Property Type
+                      </p>
+                      <div
+                        class="text-gray-600 mt-4 grid w-full grid-cols-4 gap-2 text-sm dark:text-neutral-400"
+                      >
+                        <p class="text-xs">Amenity 1</p>
+                        <p class="text-xs">Amenity 2</p>
+                        <p class="text-xs">Amenity 3</p>
+                        <p class="text-xs">Amenity 4</p>
+                      </div>
+                      <div class="mt-4 w-full text-end">
+                        <a href="view-property.html" class="text-blue-500 hover:underline"
+                          >View</a
+                        >
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </main>
+        <!-- ===== Main Content End ===== -->
+      </div>
+      <!-- ===== Content Area End ===== -->
+    </div>
+    <!-- ===== Page Wrapper End ===== -->
+  </body>
+</html>

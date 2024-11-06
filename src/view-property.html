@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>View Property - Property Management</title>
+  </head>
+
+  <body
+    x-data="{ page: 'properties', 'loaded': true, 'darkMode': true, 'stickyMenu': false, 'sidebarToggle': false, 'scrollTop': false }"
+    x-init="
+         darkMode = JSON.parse(localStorage.getItem('darkMode'));
+         $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(value)))"
+    :class="{'dark text-bodydark bg-boxdark-2': darkMode === true}"
+  >
+    <!-- ===== Preloader Start ===== -->
+    <include src="./partials/preloader.html"></include>
+    <!-- ===== Preloader End ===== -->
+
+    <!-- ===== Page Wrapper Start ===== -->
+    <div class="flex h-screen overflow-hidden">
+      <!-- ===== Sidebar Start ===== -->
+      <include src="./partials/sidebar.html"></include>
+      <!-- ===== Sidebar End ===== -->
+
+      <!-- ===== Content Area Start ===== -->
+      <div
+        class="relative flex flex-1 flex-col overflow-y-auto overflow-x-hidden"
+      >
+        <!-- ===== Header Start ===== -->
+        <include src="./partials/header.html" />
+        <!-- ===== Header End ===== -->
+
+        <!-- ===== Main Content Start ===== -->
+        <main>
+          <div class="mx-auto max-w-screen-2xl p-4 md:p-6 2xl:p-10">
+            <div class="mx-auto max-w-270">
+              <!-- Breadcrumb Start -->
+              <div
+                class="mb-6 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between"
+              >
+                <div>
+                  <h2
+                    class="text-title-md2 font-bold text-black dark:text-white"
+                  >
+                    View Property
+                  </h2>
+
+                  <nav class="mt-2">
+                    <ol class="flex items-center gap-2">
+                      <li>
+                        <a class="font-medium" href="index.html">Dashboard /</a>
+                      </li>
+                      <li>
+                        <a class="font-medium" href="properties.html"
+                          >Properties /</a
+                        >
+                      </li>
+                      <li class="font-medium text-primary">View Property</li>
+                    </ol>
+                  </nav>
+                </div>
+                <div></div>
+              </div>
+              <!-- Breadcrumb End -->
+
+              <!-- ====== Properties Section Start -->
+              <div
+                class="mx-auto max-w-7xl rounded-lg bg-white p-8 shadow-md dark:bg-boxdark dark:text-white"
+              >
+                <!-- Currency Section -->
+                <div class="flex gap-6">
+                  <div class="w-full">
+                    <label class="block" for="property_image">
+                      <span class="text-sm font-medium">Property Photo</span>
+                      <img
+                        src="https://images.pexels.com/photos/208736/pexels-photo-208736.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                        alt="Property Photo"
+                        class="mt-2 w-full rounded-md object-cover"
+                      />
+                    </label>
+                  </div>
+                </div>
+
+                <!-- General Information Section -->
+                <div class="mt-8">
+                  <h3 class="text-gray-700 text-lg font-semibold">
+                    General Information
+                  </h3>
+                  <div class="mt-4 grid grid-cols-2 gap-6">
+                    <input
+                      type="text"
+                      value="Property name"
+                      class="w-full rounded border-[1.5px] border-stroke bg-transparent px-5 py-3 font-normal text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+                      disabled
+                    />
+                    <input
+                      type="text"
+                      value="Year built"
+                      class="w-full rounded border-[1.5px] border-stroke bg-transparent px-5 py-3 font-normal text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+                      disabled
+                    />
+                    <input
+                      type="text"
+                      value="Address"
+                      class="w-full rounded border-[1.5px] border-stroke bg-transparent px-5 py-3 font-normal text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+                      disabled
+                    />
+                    <input
+                      type="text"
+                      value="City"
+                      class="w-full rounded border-[1.5px] border-stroke bg-transparent px-5 py-3 font-normal text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+                      disabled
+                    />
+                    <input
+                      type="text"
+                      value="State / Region"
+                      class="w-full rounded border-[1.5px] border-stroke bg-transparent px-5 py-3 font-normal text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+                      disabled
+                    />
+                    <input
+                      type="text"
+                      value="Zip"
+                      class="w-full rounded border-[1.5px] border-stroke bg-transparent px-5 py-3 font-normal text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+                      disabled
+                    />
+                    <input
+                      type="text"
+                      value="MLS #"
+                      class="w-full rounded border-[1.5px] border-stroke bg-transparent px-5 py-3 font-normal text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+                      disabled
+                    />
+                    <input
+                      type="text"
+                      value="Country"
+                      class="w-full rounded border-[1.5px] border-stroke bg-transparent px-5 py-3 font-normal text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+                      disabled
+                    />
+                  </div>
+                </div>
+
+                <!-- Property Type Section -->
+                <div class="mt-8">
+                  <h3 class="text-gray-700 text-lg font-semibold">
+                    Property Type
+                  </h3>
+                  <div class="mt-4 flex gap-6">
+                    <!-- Single Unit Type -->
+                    <div class=" rounded-md p-4">
+                      <label class="inline-flex items-center">
+                        <span class="">Single Unit Type</span>
+                      </label>
+                      <p class="text-gray-600 mt-2 text-sm">
+                        Single family rentals (SFR) are rentals in which there
+                        is only one rental associated to a specific address.
+                        This type of property does not allow to add any
+                        units/rooms.
+                      </p>
+                    </div>
+                    <!-- Multi Unit Type -->
+                  </div>
+                </div>
+
+                <!-- Property Details Section -->
+                <div class="mt-8 grid grid-cols-3 gap-6">
+                  <div>
+                    <label class="block">
+                      <span class="text-sm font-medium">Beds</span>
+                      <input
+                        type="text"
+                        value="4"
+                        class="w-full rounded border-[1.5px] border-stroke bg-transparent px-5 py-3 font-normal text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+                        disabled
+                      />
+                    </label>
+                  </div>
+                  <div>
+                    <label class="block">
+                      <span class="text-sm font-medium">Baths</span>
+                      <input
+                        type="text"
+                        value="3"
+                        class="w-full rounded border-[1.5px] border-stroke bg-transparent px-5 py-3 font-normal text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+                        disabled
+                      />
+                    </label>
+                  </div>
+                  <div>
+                    <label class="block">
+                      <span class="text-sm font-medium">Size, sq.ft</span>
+                      <input
+                        type="text"
+                        value="1800"
+                        class="w-full rounded border-[1.5px] border-stroke bg-transparent px-5 py-3 font-normal text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+                        disabled
+                      />
+                    </label>
+                  </div>
+                  <div>
+                    <label class="block">
+                      <span class="text-sm font-medium">Market Rent</span>
+                      <input
+                        type="text"
+                        value="3000"
+                        class="w-full rounded border-[1.5px] border-stroke bg-transparent px-5 py-3 font-normal text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+                        disabled
+                      />
+                    </label>
+                  </div>
+                  <div>
+                    <label class="block">
+                      <span class="text-sm font-medium">Deposit</span>
+                      <input
+                        type="text"
+                        value="5000"
+                        class="w-full rounded border-[1.5px] border-stroke bg-transparent px-5 py-3 font-normal text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+                        disabled
+                      />
+                    </label>
+                  </div>
+                </div>
+
+                <div
+                  class="mt-8 rounded-md bg-white dark:bg-boxdark dark:text-white"
+                >
+                  <!-- Basic Amenities Section -->
+                  <div>
+                    <h3 class="text-gray-800 mb-4 text-lg font-semibold">
+                      Basic Amenities
+                    </h3>
+                    <div class="grid grid-cols-3 gap-4">
+                      <div>
+                        <label class="block">
+                          <span class="text-sm font-medium">Parking</span>
+                          <input
+                            type="text"
+                            value="Available"
+                            class="w-full rounded border-[1.5px] border-stroke bg-transparent px-5 py-3 font-normal text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+                            disabled
+                          />
+                        </label>
+                      </div>
+                      <div>
+                        <label class="block">
+                          <span class="text-sm font-medium">Laundry</span>
+                          <input
+                            type="text"
+                            value="In-Unit"
+                            class="w-full rounded border-[1.5px] border-stroke bg-transparent px-5 py-3 font-normal text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+                            disabled
+                          />
+                        </label>
+                      </div>
+                      <div>
+                        <label class="block">
+                          <span class="text-sm font-medium"
+                            >Air conditioning</span
+                          >
+                          <input
+                            type="text"
+                            value="Central AC"
+                            class="w-full rounded border-[1.5px] border-stroke bg-transparent px-5 py-3 font-normal text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+                            disabled
+                          />
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Property Features Section -->
+                  <div class="mt-8">
+                    <h3 class="text-gray-800 mb-4 text-lg font-semibold">
+                      Property Features
+                    </h3>
+                    <div class="flex flex-wrap gap-4">
+                      <span
+                        class="bg-gray-200 cursor-pointer rounded-full px-4 py-2 text-graydark"
+                        >Alarm</span
+                      >
+                      <span
+                        class="bg-gray-200 cursor-pointer rounded-full px-4 py-2 text-graydark"
+                        >Furnished</span
+                      >
+                      <span
+                        class="bg-gray-200 cursor-pointer rounded-full px-4 py-2 text-graydark"
+                        >Renovated</span
+                      >
+                      <span
+                        class="bg-gray-200 cursor-pointer rounded-full px-4 py-2 text-graydark"
+                        >Hardwood floors</span
+                      >
+                      <span
+                        class="bg-gray-200 cursor-pointer rounded-full px-4 py-2 text-graydark"
+                        >Fireplace</span
+                      >
+
+                      <span
+                        class="bg-gray-200 cursor-pointer rounded-full px-4 py-2 text-graydark"
+                        >Internet</span
+                      >
+                      <span
+                        class="bg-gray-200 cursor-pointer rounded-full px-4 py-2 text-graydark"
+                        >Fenced yard</span
+                      >
+                      <span
+                        class="bg-gray-200 cursor-pointer rounded-full px-4 py-2 text-graydark"
+                        >Tile</span
+                      >
+                      <span
+                        class="bg-gray-200 cursor-pointer rounded-full px-4 py-2 text-graydark"
+                        >Carpet</span
+                      >
+                      <span
+                        class="bg-gray-200 cursor-pointer rounded-full px-4 py-2 text-graydark"
+                        >Storage</span
+                      >
+                      <span
+                        class="bg-gray-200 cursor-pointer rounded-full px-4 py-2 text-graydark"
+                        >Unfurnished</span
+                      >
+                    </div>
+                  </div>
+
+                  <!-- Property Amenities Section -->
+                  <div class="mt-8">
+                    <h3 class="text-gray-800 mb-4 text-lg font-semibold">
+                      Property Amenities
+                    </h3>
+                    <div class="flex flex-wrap gap-4">
+                      <span
+                        class="bg-gray-200 cursor-pointer rounded-full px-4 py-2 text-graydark"
+                        >Basketball court</span
+                      >
+                      <span
+                        class="bg-gray-200 cursor-pointer rounded-full px-4 py-2 text-graydark"
+                        >BBQ</span
+                      >
+                      <span
+                        class="bg-gray-200 cursor-pointer rounded-full px-4 py-2 text-graydark"
+                        >Business center</span
+                      >
+                      <span
+                        class="bg-gray-200 cursor-pointer rounded-full px-4 py-2 text-graydark"
+                        >Clubhouse</span
+                      >
+                      <span
+                        class="bg-gray-200 cursor-pointer rounded-full px-4 py-2 text-graydark"
+                        >Dog park</span
+                      >
+                      <span
+                        class="bg-gray-200 cursor-pointer rounded-full px-4 py-2 text-graydark"
+                        >Elevator</span
+                      >
+                      <span
+                        class="bg-gray-200 cursor-pointer rounded-full px-4 py-2 text-graydark"
+                        >Fire pits</span
+                      >
+                      <span
+                        class="bg-gray-200 cursor-pointer rounded-full px-4 py-2 text-graydark"
+                        >Fitness center</span
+                      >
+                      <span
+                        class="bg-gray-200 cursor-pointer rounded-full px-4 py-2 text-graydark"
+                        >Game room</span
+                      >
+                      <span
+                        class="bg-gray-200 cursor-pointer rounded-full px-4 py-2 text-graydark"
+                        >Hot tub</span
+                      >
+                      <span
+                        class="bg-gray-200 cursor-pointer rounded-full px-4 py-2 text-graydark"
+                        >Near park</span
+                      >
+                      <span
+                        class="bg-gray-200 cursor-pointer rounded-full px-4 py-2 text-graydark"
+                        >On-site laundry</span
+                      >
+                      <span
+                        class="bg-gray-200 cursor-pointer rounded-full px-4 py-2 text-graydark"
+                        >Pet washing station</span
+                      >
+
+                      <span
+                        class="bg-gray-200 cursor-pointer rounded-full px-4 py-2 text-graydark"
+                        >Volleyball court</span
+                      >
+                    </div>
+                  </div>
+                </div>
+
+                <div
+                  class="mt-8 rounded-md bg-white dark:bg-boxdark dark:text-white"
+                >
+                  <!-- Action Buttons -->
+                  <div class="mt-8 flex justify-between">
+                    <a
+                      href="properties.html"
+                      class="bg-gray-400 text-gray-700 rounded-md px-4 py-2 hover:text-graydark"
+                    >
+                      Back
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </main>
+        <!-- ===== Main Content End ===== -->
+      </div>
+      <!-- ===== Content Area End ===== -->
+    </div>
+    <!-- ===== Page Wrapper End ===== -->
+  </body>
+</html>

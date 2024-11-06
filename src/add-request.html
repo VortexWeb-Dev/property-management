@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Add Request - Property Management</title>
+  </head>
+
+  <body
+    x-data="{ page: 'maintanance', 'loaded': true, 'darkMode': true, 'stickyMenu': false, 'sidebarToggle': false, 'scrollTop': false }"
+    x-init="
+         darkMode = JSON.parse(localStorage.getItem('darkMode'));
+         $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(value)))"
+    :class="{'dark text-bodydark bg-boxdark-2': darkMode === true}"
+  >
+    <!-- ===== Preloader Start ===== -->
+    <include src="./partials/preloader.html"></include>
+    <!-- ===== Preloader End ===== -->
+
+    <!-- ===== Page Wrapper Start ===== -->
+    <div class="flex h-screen overflow-hidden">
+      <!-- ===== Sidebar Start ===== -->
+      <include src="./partials/sidebar.html"></include>
+      <!-- ===== Sidebar End ===== -->
+
+      <!-- ===== Content Area Start ===== -->
+      <div
+        class="relative flex flex-1 flex-col overflow-y-auto overflow-x-hidden"
+      >
+        <!-- ===== Header Start ===== -->
+        <include src="./partials/header.html" />
+        <!-- ===== Header End ===== -->
+
+        <!-- ===== Main Content Start ===== -->
+        <main>
+          <div class="mx-auto max-w-screen-2xl p-4 md:p-6 2xl:p-10">
+            <div class="mx-auto max-w-270">
+              <!-- Breadcrumb Start -->
+              <div
+                class="mb-6 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between"
+              >
+                <div>
+                  <h2
+                    class="text-title-md2 font-bold text-black dark:text-white"
+                  >
+                    Add Request
+                  </h2>
+
+                  <nav class="mt-2">
+                    <ol class="flex items-center gap-2">
+                      <li>
+                        <a class="font-medium" href="index.html">Dashboard /</a>
+                      </li>
+                      <li>
+                        <a class="font-medium" href="maintanance.html"
+                          >Maintanance /</a
+                        >
+                      </li>
+                      <li class="font-medium text-primary">Add Request</li>
+                    </ol>
+                  </nav>
+                </div>
+                <div></div>
+              </div>
+              <!-- Breadcrumb End -->
+
+              <div class="mx-auto w-full rounded-lg bg-white p-8 shadow-md">
+                <div class="w-full">
+                  <h1 class="text-gray-800 mb-4 text-center text-3xl font-bold">
+                    Maintenance request
+                  </h1>
+
+                  <h2
+                    class="text-gray-700 mb-2 text-center text-xl font-semibold"
+                  >
+                    Select the request type
+                  </h2>
+                  <p class="text-gray-600 mb-8 text-center">
+                    Create a request, assign Service Pro and track the progress.
+                  </p>
+
+                  <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
+                    <!-- Basic Request Checkbox -->
+                    <label
+                      class="group relative cursor-pointer rounded-lg border p-6 shadow-sm"
+                    >
+                      <input type="radio" name="request_type" class="hidden peer" />
+                      
+                      <div
+                        class="border-gray-300 absolute top-2 right-2 h-4 w-4 rounded-full border-2 peer-checked:bg-green-500"
+                      ></div>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="text-gray-500 mb-4 h-8 w-8"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"
+                        />
+                      </svg>
+                      <h3 class="text-gray-800 mb-2 text-lg font-semibold">Basic request</h3>
+                      <p class="text-gray-600 text-sm">
+                        Add the most basic information about the issue like category, description
+                        of the request, and photos/video. You can always edit it later.
+                      </p>
+                    </label>
+                  
+                    <!-- Advanced Request Checkbox -->
+                    <label
+                      class="group relative cursor-pointer rounded-lg border p-6 shadow-sm"
+                    >
+                      <input type="radio" name="request_type" class="hidden peer" />
+                      <div
+                        class="border-gray-300 absolute top-2 right-2 h-4 w-4 rounded-full border-2 peer-checked:bg-green-500"
+                      ></div>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="text-gray-500 mb-4 h-8 w-8"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"
+                        />
+                      </svg>
+                      <h3 class="text-gray-800 mb-2 text-lg font-semibold">Advanced request</h3>
+                      <p class="text-gray-600 text-sm">
+                        Add a full information about the issue, add photos/video, select the
+                        assignee, link equipment, add materials, and more. You can always edit it
+                        later.
+                      </p>
+                    </label>
+                  </div>
+                  
+                </div>
+
+                <div class="mt-8 w-full">
+                  <h1 class="text-gray-800 mb-2 text-center text-2xl font-bold">
+                    What is this request about?
+                  </h1>
+                  <p class="text-gray-600 mb-8 text-center">
+                    Start selecting the category to define the issue or use the
+                    smart search.
+                  </p>
+
+                  <div
+                    class="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3"
+                  >
+                    <label
+                      class="group flex cursor-pointer flex-col items-center space-y-2"
+                    >
+                      <input
+                        type="radio"
+                        name="category"
+                        class="peer sr-only"
+                        value="appliances"
+                      />
+                      <div
+                        class="bg-gray-100 group-hover:bg-gray-200 flex h-24 w-24 items-center justify-center rounded-lg peer-checked:ring-2 peer-checked:ring-blue-500"
+                      >
+                        <svg
+                          class="text-gray-400 h-12 w-12"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"
+                          ></path>
+                        </svg>
+                      </div>
+                      <span class="text-gray-700 font-medium">Appliances</span>
+                      <span class="text-gray-500 text-center text-sm"
+                        >Stove, dishwasher, fridge, heating & cooling</span
+                      >
+                    </label>
+
+                    <label
+                      class="group flex cursor-pointer flex-col items-center space-y-2"
+                    >
+                      <input
+                        type="radio"
+                        name="category"
+                        class="peer sr-only"
+                        value="electrical"
+                      />
+                      <div
+                        class="bg-gray-100 group-hover:bg-gray-200 flex h-24 w-24 items-center justify-center rounded-lg peer-checked:ring-2 peer-checked:ring-blue-500"
+                      >
+                        <svg
+                          class="text-gray-400 h-12 w-12"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M13 10V3L4 14h7v7l9-11h-7z"
+                          ></path>
+                        </svg>
+                      </div>
+                      <span class="text-gray-700 font-medium">Electrical</span>
+                      <span class="text-gray-500 text-center text-sm"
+                        >Lights, outlets, breakers, telephone systems</span
+                      >
+                    </label>
+
+                    <label
+                      class="group flex cursor-pointer flex-col items-center space-y-2"
+                    >
+                      <input
+                        type="radio"
+                        name="category"
+                        class="peer sr-only"
+                        value="house-exterior"
+                      />
+                      <div
+                        class="bg-gray-100 group-hover:bg-gray-200 flex h-24 w-24 items-center justify-center rounded-lg peer-checked:ring-2 peer-checked:ring-blue-500"
+                      >
+                        <svg
+                          class="text-gray-400 h-12 w-12"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
+                          ></path>
+                        </svg>
+                      </div>
+                      <span class="text-gray-700 font-medium"
+                        >House Exterior</span
+                      >
+                      <span class="text-gray-500 text-center text-sm"
+                        >Roof, doors, windows, air conditioning</span
+                      >
+                    </label>
+
+                    <label
+                      class="group flex cursor-pointer flex-col items-center space-y-2"
+                    >
+                      <input
+                        type="radio"
+                        name="category"
+                        class="peer sr-only"
+                        value="household"
+                      />
+                      <div
+                        class="bg-gray-100 group-hover:bg-gray-200 flex h-24 w-24 items-center justify-center rounded-lg peer-checked:ring-2 peer-checked:ring-blue-500"
+                      >
+                        <svg
+                          class="text-gray-400 h-12 w-12"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
+                          ></path>
+                        </svg>
+                      </div>
+                      <span class="text-gray-700 font-medium">Household</span>
+                      <span class="text-gray-500 text-center text-sm"
+                        >Doors, windows, closets, flooring, pest control</span
+                      >
+                    </label>
+
+                    <label
+                      class="group flex cursor-pointer flex-col items-center space-y-2"
+                    >
+                      <input
+                        type="radio"
+                        name="category"
+                        class="peer sr-only"
+                        value="outdoors"
+                      />
+                      <div
+                        class="bg-gray-100 group-hover:bg-gray-200 flex h-24 w-24 items-center justify-center rounded-lg peer-checked:ring-2 peer-checked:ring-blue-500"
+                      >
+                        <svg
+                          class="text-gray-400 h-12 w-12"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"
+                          ></path>
+                        </svg>
+                      </div>
+                      <span class="text-gray-700 font-medium">Outdoors</span>
+                      <span class="text-gray-500 text-center text-sm"
+                        >Landscaping, fencing, pool, porch, parking</span
+                      >
+                    </label>
+
+                    <label
+                      class="group flex cursor-pointer flex-col items-center space-y-2"
+                    >
+                      <input
+                        type="radio"
+                        name="category"
+                        class="peer sr-only"
+                        value="plumbing"
+                      />
+                      <div
+                        class="bg-gray-100 group-hover:bg-gray-200 flex h-24 w-24 items-center justify-center rounded-lg peer-checked:ring-2 peer-checked:ring-blue-500"
+                      >
+                        <svg
+                          class="text-gray-400 h-12 w-12"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M14 8V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h3m6 0v-2a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h3m6 0a2 2 0 002 2h3a2 2 0 002-2v-6a2 2 0 00-2-2h-3m-6 0h6"
+                          ></path>
+                        </svg>
+                      </div>
+                      <span class="text-gray-700 font-medium">Plumbing</span>
+                      <span class="text-gray-500 text-center text-sm"
+                        >Drains, faucets, pipes, pumps, sprinkler systems</span
+                      >
+                    </label>
+                  </div>
+                </div>
+
+                <div class="mt-8 w-full">
+                  <h2 class="text-gray-700 mb-2 text-lg font-semibold">
+                    CATEGORY
+                  </h2>
+
+                  <div class="mb-4 grid grid-cols-1 gap-4 md:grid-cols-2">
+                    <div>
+                      <label
+                        for="category"
+                        class="text-gray-700 mb-1 block text-sm font-medium"
+                        >Category*</label
+                      >
+                      <select
+                        id="category"
+                        name="category"
+                        class="w-full rounded border-[1.5px] border-stroke bg-transparent px-5 py-3 font-normal text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+                      >
+                        <option>Appliances</option>
+                      </select>
+                    </div>
+                    <div>
+                      <label
+                        for="sub-category"
+                        class="text-gray-700 mb-1 block text-sm font-medium"
+                        >Sub-category*</label
+                      >
+                      <select
+                        id="sub-category"
+                        name="sub-category"
+                        class="w-full rounded border-[1.5px] border-stroke bg-transparent px-5 py-3 font-normal text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+                      >
+                        <option>Water Heater</option>
+                      </select>
+                    </div>
+                    <div>
+                      <label
+                        for="issue"
+                        class="text-gray-700 mb-1 block text-sm font-medium"
+                        >Issue*</label
+                      >
+                      <select
+                        id="issue"
+                        name="issue"
+                        class="w-full rounded border-[1.5px] border-stroke bg-transparent px-5 py-3 font-normal text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+                      >
+                        <option>Leaking</option>
+                      </select>
+                    </div>
+                    <div>
+                      <label
+                        for="sub-issue"
+                        class="text-gray-700 mb-1 block text-sm font-medium"
+                        >Sub-issue*</label
+                      >
+                      <select
+                        id="sub-issue"
+                        name="sub-issue"
+                        class="w-full rounded border-[1.5px] border-stroke bg-transparent px-5 py-3 font-normal text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+                      >
+                        <option>Small leak</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <h2 class="text-gray-700 mb-2 mt-6 text-lg font-semibold">
+                    ISSUE DETAILS
+                  </h2>
+                  <p class="text-gray-600 mb-4 text-sm">
+                    Add any additional request details as a title, photos and a
+                    video of the problem to narrow down the issue.
+                  </p>
+
+                  <div class="mb-4">
+                    <label
+                      for="title"
+                      class="text-gray-700 mb-1 block text-sm font-medium"
+                      >Title*</label
+                    >
+                    <input
+                      type="text"
+                      id="title"
+                      name="title"
+                      value="Appliances / Water Heater / Leaking"
+                      class="w-full rounded border-[1.5px] border-stroke bg-transparent px-5 py-3 font-normal text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+                    />
+                  </div>
+
+                  <div class="mb-4">
+                    <div class="mb-2 flex space-x-2">
+                      <button
+                        class="border-gray-300 flex h-8 w-8 items-center justify-center rounded border p-1"
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke-width="1.5"
+                          stroke="currentColor"
+                          class="h-4 w-4"
+                        >
+                          <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            d="M6.75 15.75L3 12m0 0l3.75-3.75M3 12h18"
+                          />
+                        </svg>
+                      </button>
+                      <button
+                        class="border-gray-300 flex h-8 w-8 items-center justify-center rounded border p-1"
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke-width="1.5"
+                          stroke="currentColor"
+                          class="h-4 w-4"
+                        >
+                          <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3"
+                          />
+                        </svg>
+                      </button>
+                      <button
+                        class="border-gray-300 flex h-8 w-8 items-center justify-center rounded border p-1 font-bold"
+                      >
+                        B
+                      </button>
+                      <button
+                        class="border-gray-300 flex h-8 w-8 items-center justify-center rounded border p-1 italic"
+                      >
+                        I
+                      </button>
+                      <button
+                        class="border-gray-300 flex h-8 w-8 items-center justify-center rounded border p-1"
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke-width="1.5"
+                          stroke="currentColor"
+                          class="h-4 w-4"
+                        >
+                          <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            d="M8.25 4.5l7.5 7.5-7.5 7.5"
+                          />
+                        </svg>
+                      </button>
+                      <button
+                        class="border-gray-300 flex h-8 w-8 items-center justify-center rounded border p-1"
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke-width="1.5"
+                          stroke="currentColor"
+                          class="h-4 w-4"
+                        >
+                          <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            d="M13.19 8.688a4.5 4.5 0 011.242 7.244l-4.5 4.5a4.5 4.5 0 01-6.364-6.364l1.757-1.757m13.35-.622l1.757-1.757a4.5 4.5 0 00-6.364-6.364l-4.5 4.5a4.5 4.5 0 001.242 7.244"
+                          />
+                        </svg>
+                      </button>
+                      <button
+                        class="border-gray-300 flex h-8 w-8 items-center justify-center rounded border p-1"
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke-width="1.5"
+                          stroke="currentColor"
+                          class="h-4 w-4"
+                        >
+                          <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            d="M8.25 6.75h12M8.25 12h12m-12 5.25h12M3.75 6.75h.007v.008H3.75V6.75zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zM3.75 12h.007v.008H3.75V12zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm-.375 5.25h.007v.008H3.75v-.008zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z"
+                          />
+                        </svg>
+                      </button>
+                      <button
+                        class="border-gray-300 flex h-8 w-8 items-center justify-center rounded border p-1"
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke-width="1.5"
+                          stroke="currentColor"
+                          class="h-4 w-4"
+                        >
+                          <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            d="M8.25 6.75h12M8.25 12h12m-12 5.25h12M3.75 6.75h.007v.008H3.75V6.75zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zM3.75 12h.007v.008H3.75V12zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm-.375 5.25h.007v.008H3.75v-.008zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z"
+                          />
+                        </svg>
+                      </button>
+                    </div>
+                    <textarea
+                      id="details"
+                      name="details"
+                      rows="4"
+                      class="mt-2 w-full rounded border-[1.5px] border-stroke bg-transparent px-5 py-3 font-normal text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+                      placeholder="Type details"
+                    ></textarea>
+                    <div class="text-gray-500 mt-1 text-right text-xs">
+                      Character limit: 0 / 1000
+                    </div>
+                  </div>
+                </div>
+
+                <div class="mt-8 w-full">
+                  <div class="mb-6">
+                    <h2 class="mb-2 text-lg font-semibold">PROPERTY</h2>
+                    <p class="text-gray-600 mb-2 text-sm">
+                      Select the property and a unit (if applicable) from the
+                      list below.
+                    </p>
+                    <div class="flex space-x-4">
+                      <div class="flex-1">
+                        <select class="w-full rounded border-[1.5px] border-stroke bg-transparent px-5 py-3 font-normal text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary">
+                          <option>Boylston Street</option>
+                        </select>
+                      </div>
+                      <div class="flex-1">
+                        <div class="relative">
+                          <input
+                            type="text"
+                            value="1"
+                            class="w-full rounded border-[1.5px] border-stroke bg-transparent px-5 py-3 font-normal text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+                          />
+                          <button
+                            class="text-gray-500 absolute right-2 top-1/2 -translate-y-1/2 transform"
+                          >
+                            ×
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  
+
+                  <div class="mb-6">
+                    <h2 class="mb-2 text-lg font-semibold">
+                      TENANT INFORMATION
+                    </h2>
+                    <p class="text-gray-600 mb-2 text-sm">
+                      Select the tenants from the dropdown below. If your tenant
+                      is connected with you, the request will be automatically
+                      shared with them and posted on their Tenant Portal.
+                    </p>
+                    <select class="w-full rounded border-[1.5px] border-stroke bg-transparent px-5 py-3 font-normal text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary">
+                      <option>Amanda Walker</option>
+                    </select>
+                  </div>
+
+                  <div>
+                    <h2 class="mb-2 text-lg font-semibold">
+                      AVAILABLE DATE & TIME
+                    </h2>
+                    <p class="text-gray-600 mb-2 text-sm">
+                      If the property is rented, please provide the date and
+                      time to arrange the maintenance.
+                    </p>
+                  </div>
+                  <div class="flex space-x-4">
+                    <div class="flex-1">
+                      <input
+                        type="date"
+                        value="1"
+                        class="w-full rounded border-[1.5px] border-stroke bg-transparent px-5 py-3 font-normal text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+                      />
+                    </div>
+                    <div class="flex-1">
+                      <input
+                        type="time"
+                        value="1"
+                        class="w-full rounded border-[1.5px] border-stroke bg-transparent px-5 py-3 font-normal text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                <div class="mt-8 flex justify-between">
+                  <a
+                    href="maintanance.html"
+                    class="bg-gray-300 text-gray-700 rounded-md px-4 py-2 hover:text-graydark"
+                  >
+                    Cancel
+                  </a>
+                  <button
+                    class="rounded-md bg-green-600 px-4 py-2 text-white"
+                  >
+                    Create
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </main>
+        <!-- ===== Main Content End ===== -->
+      </div>
+      <!-- ===== Content Area End ===== -->
+    </div>
+    <!-- ===== Page Wrapper End ===== -->
+  </body>
+</html>

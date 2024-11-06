@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Add Listing - Property Management</title>
+  </head>
+
+  <body
+    x-data="{ page: 'listings', 'loaded': true, 'darkMode': true, 'stickyMenu': false, 'sidebarToggle': false, 'scrollTop': false }"
+    x-init="
+         darkMode = JSON.parse(localStorage.getItem('darkMode'));
+         $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(value)))"
+    :class="{'dark text-bodydark bg-boxdark-2': darkMode === true}"
+  >
+    <!-- ===== Preloader Start ===== -->
+    <include src="./partials/preloader.html"></include>
+    <!-- ===== Preloader End ===== -->
+
+    <!-- ===== Page Wrapper Start ===== -->
+    <div class="flex h-screen overflow-hidden">
+      <!-- ===== Sidebar Start ===== -->
+      <include src="./partials/sidebar.html"></include>
+      <!-- ===== Sidebar End ===== -->
+
+      <!-- ===== Content Area Start ===== -->
+      <div
+        class="relative flex flex-1 flex-col overflow-y-auto overflow-x-hidden"
+      >
+        <!-- ===== Header Start ===== -->
+        <include src="./partials/header.html" />
+        <!-- ===== Header End ===== -->
+
+        <!-- ===== Main Content Start ===== -->
+        <main>
+          <div class="mx-auto max-w-screen-2xl p-4 md:p-6 2xl:p-10">
+            <div class="mx-auto max-w-270">
+              <!-- Breadcrumb Start -->
+              <div
+                class="mb-6 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between"
+              >
+                <div>
+                  <h2
+                    class="text-title-md2 font-bold text-black dark:text-white"
+                  >
+                    Add Listing
+                  </h2>
+
+                  <nav class="mt-2">
+                    <ol class="flex items-center gap-2">
+                      <li>
+                        <a class="font-medium" href="index.html">Dashboard /</a>
+                      </li>
+                      <li>
+                        <a class="font-medium" href="listings.html"
+                          >Listings /</a
+                        >
+                      </li>
+                      <li class="font-medium text-primary">Add Listing</li>
+                    </ol>
+                  </nav>
+                </div>
+                <div></div>
+              </div>
+              <!-- Breadcrumb End -->
+
+              <!-- ====== Listings Section Start -->
+              <div class="w-full max-w-2xl rounded-lg bg-white p-8 shadow-md mx-auto">
+                <h1 class="mb-6 text-center text-3xl font-bold">
+                  Create a Listing
+                </h1>
+
+                <div class="mb-6">
+                  <h2 class="mb-2 text-xl font-semibold">
+                    Listing syndication
+                  </h2>
+                  <p class="text-gray-600 mb-2">
+                    Choose where to post your listing to and go on to the
+                    details.
+                    <a href="#" class="text-green-600 hover:underline"
+                      >Find out more</a
+                    >
+                    about syndication.
+                  </p>
+                </div>
+
+                <div class="mb-6 space-y-4">
+                  <label
+                    class="hover:bg-gray-50 flex cursor-pointer items-center rounded-lg border p-4"
+                  >
+                    <input
+                      type="radio"
+                      name="listing_type"
+                      class="form-checkbox h-5 w-5 rounded text-green-500 focus:ring-green-400"
+                      checked
+                    />
+                    <div class="ml-4">
+                      <div class="mb-2 flex items-center">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          class="text-gray-600 mr-2 h-6 w-6"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                        >
+                          <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"
+                          />
+                        </svg>
+                        <h3 class="text-lg font-semibold">Listing website</h3>
+                      </div>
+                      <p class="text-gray-600">
+                        The listing will be automatically posted to your Listing
+                        website.
+                      </p>
+                    </div>
+                  </label>
+
+                  <label
+                    class="hover:bg-gray-50 flex cursor-pointer items-center rounded-lg border p-4"
+                  >
+                    <input
+                      type="radio"
+                      name="listing_type"
+                      class="form-checkbox h-5 w-5 rounded text-green-500 focus:ring-green-400"
+                    />
+                    <div class="ml-4">
+                      <div class="mb-2 flex items-center">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          class="text-gray-600 mr-2 h-6 w-6"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                        >
+                          <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"
+                          />
+                        </svg>
+                        <h3 class="text-lg font-semibold">Free ILS</h3>
+                      </div>
+                      <p class="text-gray-600 mb-2">
+                        Publish your listing to the most popular ILS like:
+                      </p>
+                      <div class="flex space-x-2">
+                        <span class="text-gray-500 font-semibold">rentler</span>
+                        <span class="text-gray-500 font-semibold"
+                          >Apartments.com</span
+                        >
+                        <span class="text-gray-500 font-semibold"
+                          >realtor.com</span
+                        >
+                      </div>
+                    </div>
+                  </label>
+                </div>
+
+                <button
+                  class="w-full rounded-md bg-green-500 px-6 py-2 text-white transition duration-300 hover:bg-green-600"
+                >
+                  Get started
+                </button>
+              </div>
+            </div>
+          </div>
+        </main>
+        <!-- ===== Main Content End ===== -->
+      </div>
+      <!-- ===== Content Area End ===== -->
+    </div>
+    <!-- ===== Page Wrapper End ===== -->
+  </body>
+</html>

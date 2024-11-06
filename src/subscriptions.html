@@ -1,0 +1,3758 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Settings - Property Management</title>
+  </head>
+
+  <body
+    x-data="{ page: 'settings', 'loaded': true, 'darkMode': true, 'stickyMenu': false, 'sidebarToggle': false, 'scrollTop': false }"
+    x-init="
+          darkMode = JSON.parse(localStorage.getItem('darkMode'));
+          $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(value)))"
+    :class="{'dark text-bodydark bg-boxdark-2': darkMode === true}"
+  >
+    <!-- ===== Preloader Start ===== -->
+    <include src="./partials/preloader.html"></include>
+    <!-- ===== Preloader End ===== -->
+
+    <!-- ===== Page Wrapper Start ===== -->
+    <div class="flex h-screen overflow-hidden">
+      <!-- ===== Sidebar Start ===== -->
+      <include src="./partials/sidebar.html"></include>
+      <!-- ===== Sidebar End ===== -->
+
+      <!-- ===== Content Area Start ===== -->
+      <div
+        class="relative flex flex-1 flex-col overflow-y-auto overflow-x-hidden"
+      >
+        <!-- ===== Header Start ===== -->
+        <include src="./partials/header.html" />
+        <!-- ===== Header End ===== -->
+
+        <!-- ===== Main Content Start ===== -->
+        <main>
+          <div class="mx-auto max-w-screen-2xl p-4 md:p-6 2xl:p-10">
+            <div class="mx-auto max-w-270">
+              <!-- Breadcrumb Start -->
+              <div
+                class="mb-6 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between"
+              >
+                <h2 class="text-title-md2 font-bold text-black dark:text-white">
+                  Subscriptions Page
+                </h2>
+
+                <nav>
+                  <ol class="flex items-center gap-2">
+                    <li>
+                      <a class="font-medium" href="index.html">Dashboard /</a>
+                    </li>
+                    <li>
+                      <a class="font-medium" href="settings.html">Settings /</a>
+                    </li>
+                    <li class="font-medium text-primary">Subscriptions</li>
+                  </ol>
+                </nav>
+              </div>
+              <!-- Breadcrumb End -->
+
+              <!-- ====== Settings Section Start -->
+              <!-- Pricing -->
+              <div
+                class="mx-auto max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 bg-white dark:bg-boxdark rounded-md"
+              >
+                <!-- Title -->
+                <div class="mx-auto mb-10 max-w-2xl text-center lg:mb-14">
+                  <h2
+                    class="text-2xl font-bold dark:text-white md:text-4xl md:leading-tight"
+                  >
+                    Pricing
+                  </h2>
+                  <p class="text-gray-600 mt-1 dark:text-neutral-400">
+                    Whatever your status, our offers evolve according to your
+                    needs.
+                  </p>
+                </div>
+                <!-- End Title -->
+
+                <!-- Switch -->
+                <div class="flex items-center justify-center">
+                  <label
+                    class="min-w-14 text-gray-500 me-3 text-sm dark:text-neutral-400"
+                    >Monthly</label
+                  >
+
+                  <input
+                    type="checkbox"
+                    id="hs-basic-with-description"
+                    class="bg-gray-100 dark:focus:ring-offset-gray-600 before:size-6 relative h-7 w-[3.25rem] cursor-pointer rounded-full border-transparent p-px text-transparent transition-colors duration-200 ease-in-out before:inline-block before:translate-x-0 before:transform before:rounded-full before:bg-white before:shadow before:ring-0 before:transition before:duration-200 before:ease-in-out checked:border-blue-600 checked:bg-none checked:text-blue-600 checked:before:translate-x-full checked:before:bg-white focus:ring-blue-600 focus:checked:border-blue-600 disabled:pointer-events-none disabled:opacity-50 dark:border-neutral-700 dark:bg-neutral-800 dark:before:bg-neutral-400 dark:checked:border-blue-500 dark:checked:bg-blue-500 dark:checked:before:bg-white"
+                    checked
+                  />
+
+                  <label
+                    class="min-w-14 text-gray-500 ms-3 relative text-sm dark:text-neutral-400"
+                  >
+                    Annual
+                    <span class="start-auto -end-28 absolute -top-10">
+                      <span class="flex items-center">
+                        <svg
+                          class="-me-6 h-8 w-14"
+                          width="45"
+                          height="25"
+                          viewBox="0 0 45 25"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M43.2951 3.47877C43.8357 3.59191 44.3656 3.24541 44.4788 2.70484C44.5919 2.16427 44.2454 1.63433 43.7049 1.52119L43.2951 3.47877ZM4.63031 24.4936C4.90293 24.9739 5.51329 25.1423 5.99361 24.8697L13.8208 20.4272C14.3011 20.1546 14.4695 19.5443 14.1969 19.0639C13.9242 18.5836 13.3139 18.4152 12.8336 18.6879L5.87608 22.6367L1.92723 15.6792C1.65462 15.1989 1.04426 15.0305 0.563943 15.3031C0.0836291 15.5757 -0.0847477 16.1861 0.187863 16.6664L4.63031 24.4936ZM43.7049 1.52119C32.7389 -0.77401 23.9595 0.99522 17.3905 5.28788C10.8356 9.57127 6.58742 16.2977 4.53601 23.7341L6.46399 24.2659C8.41258 17.2023 12.4144 10.9287 18.4845 6.96211C24.5405 3.00476 32.7611 1.27399 43.2951 3.47877L43.7049 1.52119Z"
+                            fill="currentColor"
+                            class="fill-gray-300 dark:fill-neutral-700"
+                          />
+                        </svg>
+                        <span
+                          class="mt-3 inline-block whitespace-nowrap rounded-full bg-blue-600 py-1 px-2.5 text-[11px] font-semibold uppercase leading-5 tracking-wide text-white"
+                          >Save up to 10%</span
+                        >
+                      </span>
+                    </span>
+                  </label>
+                </div>
+                <!-- End Switch -->
+
+                <!-- Grid -->
+                <div
+                  class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4 lg:items-center"
+                >
+                  <!-- Card -->
+                  <div
+                    class="border-gray-200 flex flex-col rounded-xl border p-8 text-center dark:border-neutral-800"
+                  >
+                    <h4
+                      class="text-gray-800 text-lg font-medium dark:text-neutral-200"
+                    >
+                      Free
+                    </h4>
+                    <span
+                      class="text-gray-800 mt-7 text-5xl font-bold dark:text-neutral-200"
+                      >Free</span
+                    >
+                    <p class="text-gray-500 mt-2 text-sm dark:text-neutral-500">
+                      Forever free
+                    </p>
+
+                    <ul class="mt-7 space-y-2.5 text-sm">
+                      <li class="flex gap-x-2">
+                        <svg
+                          class="size-4 mt-0.5 shrink-0 text-blue-600 dark:text-blue-500"
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="24"
+                          height="24"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        >
+                          <polyline points="20 6 9 17 4 12" />
+                        </svg>
+                        <span class="text-gray-800 dark:text-neutral-400">
+                          1 user
+                        </span>
+                      </li>
+
+                      <li class="flex gap-x-2">
+                        <svg
+                          class="size-4 mt-0.5 shrink-0 text-blue-600 dark:text-blue-500"
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="24"
+                          height="24"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        >
+                          <polyline points="20 6 9 17 4 12" />
+                        </svg>
+                        <span class="text-gray-800 dark:text-neutral-400">
+                          Plan features
+                        </span>
+                      </li>
+
+                      <li class="flex gap-x-2">
+                        <svg
+                          class="size-4 mt-0.5 shrink-0 text-blue-600 dark:text-blue-500"
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="24"
+                          height="24"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        >
+                          <polyline points="20 6 9 17 4 12" />
+                        </svg>
+                        <span class="text-gray-800 dark:text-neutral-400">
+                          Product support
+                        </span>
+                      </li>
+                    </ul>
+
+                    <a
+                      class="border-gray-200 text-gray-800 hover:bg-gray-50 focus:bg-gray-50 mt-5 inline-flex items-center justify-center gap-x-2 rounded-lg border bg-white py-3 px-4 text-sm font-medium shadow-sm focus:outline-none disabled:pointer-events-none disabled:opacity-50 dark:border-neutral-700 dark:bg-transparent dark:text-neutral-300 dark:hover:bg-neutral-800 dark:focus:bg-neutral-800"
+                      href="#"
+                    >
+                      Sign up
+                    </a>
+                  </div>
+                  <!-- End Card -->
+
+                  <!-- Card -->
+                  <div
+                    class="flex flex-col rounded-xl border-2 border-blue-600 p-8 text-center shadow-xl dark:border-blue-700"
+                  >
+                    <p class="mb-3">
+                      <span
+                        class="inline-flex items-center gap-1.5 rounded-lg bg-blue-100 py-1.5 px-3 text-xs font-semibold uppercase text-blue-800 dark:bg-blue-600 dark:text-white"
+                        >Most popular</span
+                      >
+                    </p>
+                    <h4
+                      class="text-gray-800 text-lg font-medium dark:text-neutral-200"
+                    >
+                      Startup
+                    </h4>
+                    <span
+                      class="text-gray-800 mt-5 text-5xl font-bold dark:text-neutral-200"
+                    >
+                      <span class="-me-2 text-2xl font-bold">$</span>
+                      39
+                    </span>
+                    <p class="text-gray-500 mt-2 text-sm dark:text-neutral-500">
+                      All the basics for starting a new business
+                    </p>
+
+                    <ul class="mt-7 space-y-2.5 text-sm">
+                      <li class="flex gap-x-2">
+                        <svg
+                          class="size-4 mt-0.5 shrink-0 text-blue-600 dark:text-blue-500"
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="24"
+                          height="24"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        >
+                          <polyline points="20 6 9 17 4 12" />
+                        </svg>
+                        <span class="text-gray-800 dark:text-neutral-400">
+                          2 users
+                        </span>
+                      </li>
+
+                      <li class="flex gap-x-2">
+                        <svg
+                          class="size-4 mt-0.5 shrink-0 text-blue-600 dark:text-blue-500"
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="24"
+                          height="24"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        >
+                          <polyline points="20 6 9 17 4 12" />
+                        </svg>
+                        <span class="text-gray-800 dark:text-neutral-400">
+                          Plan features
+                        </span>
+                      </li>
+
+                      <li class="flex gap-x-2">
+                        <svg
+                          class="size-4 mt-0.5 shrink-0 text-blue-600 dark:text-blue-500"
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="24"
+                          height="24"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        >
+                          <polyline points="20 6 9 17 4 12" />
+                        </svg>
+                        <span class="text-gray-800 dark:text-neutral-400">
+                          Product support
+                        </span>
+                      </li>
+                    </ul>
+
+                    <a
+                      class="mt-5 inline-flex items-center justify-center gap-x-2 rounded-lg border border-transparent bg-blue-600 py-3 px-4 text-sm font-medium text-white hover:bg-blue-700 focus:bg-blue-700 focus:outline-none disabled:pointer-events-none disabled:opacity-50"
+                      href="#"
+                    >
+                      Sign up
+                    </a>
+                  </div>
+                  <!-- End Card -->
+
+                  <!-- Card -->
+                  <div
+                    class="border-gray-200 flex flex-col rounded-xl border p-8 text-center dark:border-neutral-800"
+                  >
+                    <h4
+                      class="text-gray-800 text-lg font-medium dark:text-neutral-200"
+                    >
+                      Team
+                    </h4>
+                    <span
+                      class="text-gray-800 mt-5 text-5xl font-bold dark:text-neutral-200"
+                    >
+                      <span class="-me-2 text-2xl font-bold">$</span>
+                      89
+                    </span>
+                    <p class="text-gray-500 mt-2 text-sm dark:text-neutral-500">
+                      Everything you need for a growing business
+                    </p>
+
+                    <ul class="mt-7 space-y-2.5 text-sm">
+                      <li class="flex gap-x-2">
+                        <svg
+                          class="size-4 mt-0.5 shrink-0 text-blue-600 dark:text-blue-500"
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="24"
+                          height="24"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        >
+                          <polyline points="20 6 9 17 4 12" />
+                        </svg>
+                        <span class="text-gray-800 dark:text-neutral-400">
+                          5 users
+                        </span>
+                      </li>
+
+                      <li class="flex gap-x-2">
+                        <svg
+                          class="size-4 mt-0.5 shrink-0 text-blue-600 dark:text-blue-500"
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="24"
+                          height="24"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        >
+                          <polyline points="20 6 9 17 4 12" />
+                        </svg>
+                        <span class="text-gray-800 dark:text-neutral-400">
+                          Plan features
+                        </span>
+                      </li>
+
+                      <li class="flex gap-x-2">
+                        <svg
+                          class="size-4 mt-0.5 shrink-0 text-blue-600 dark:text-blue-500"
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="24"
+                          height="24"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        >
+                          <polyline points="20 6 9 17 4 12" />
+                        </svg>
+                        <span class="text-gray-800 dark:text-neutral-400">
+                          Product support
+                        </span>
+                      </li>
+                    </ul>
+
+                    <a
+                      class="border-gray-200 text-gray-800 hover:bg-gray-50 focus:bg-gray-50 mt-5 inline-flex items-center justify-center gap-x-2 rounded-lg border bg-white py-3 px-4 text-sm font-medium shadow-sm focus:outline-none disabled:pointer-events-none disabled:opacity-50 dark:border-neutral-700 dark:bg-transparent dark:text-neutral-300 dark:hover:bg-neutral-800 dark:focus:bg-neutral-800"
+                      href="#"
+                    >
+                      Sign up
+                    </a>
+                  </div>
+                  <!-- End Card -->
+
+                  <!-- Card -->
+                  <div
+                    class="border-gray-200 flex flex-col rounded-xl border p-8 text-center dark:border-neutral-800"
+                  >
+                    <h4
+                      class="text-gray-800 text-lg font-medium dark:text-neutral-200"
+                    >
+                      Enterprise
+                    </h4>
+                    <span
+                      class="text-gray-800 mt-5 text-5xl font-bold dark:text-neutral-200"
+                    >
+                      <span class="-me-2 text-2xl font-bold">$</span>
+                      149
+                    </span>
+                    <p class="text-gray-500 mt-2 text-sm dark:text-neutral-500">
+                      Advanced features for scaling your business
+                    </p>
+
+                    <ul class="mt-7 space-y-2.5 text-sm">
+                      <li class="flex gap-x-2">
+                        <svg
+                          class="size-4 mt-0.5 shrink-0 text-blue-600 dark:text-blue-500"
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="24"
+                          height="24"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        >
+                          <polyline points="20 6 9 17 4 12" />
+                        </svg>
+                        <span class="text-gray-800 dark:text-neutral-400">
+                          10 users
+                        </span>
+                      </li>
+
+                      <li class="flex gap-x-2">
+                        <svg
+                          class="size-4 mt-0.5 shrink-0 text-blue-600 dark:text-blue-500"
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="24"
+                          height="24"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        >
+                          <polyline points="20 6 9 17 4 12" />
+                        </svg>
+                        <span class="text-gray-800 dark:text-neutral-400">
+                          Plan features
+                        </span>
+                      </li>
+
+                      <li class="flex gap-x-2">
+                        <svg
+                          class="size-4 mt-0.5 shrink-0 text-blue-600 dark:text-blue-500"
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="24"
+                          height="24"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        >
+                          <polyline points="20 6 9 17 4 12" />
+                        </svg>
+                        <span class="text-gray-800 dark:text-neutral-400">
+                          Product support
+                        </span>
+                      </li>
+                    </ul>
+
+                    <a
+                      class="border-gray-200 text-gray-800 hover:bg-gray-50 focus:bg-gray-50 mt-5 inline-flex items-center justify-center gap-x-2 rounded-lg border bg-white py-3 px-4 text-sm font-medium shadow-sm focus:outline-none disabled:pointer-events-none disabled:opacity-50 dark:border-neutral-700 dark:bg-transparent dark:text-neutral-300 dark:hover:bg-neutral-800 dark:focus:bg-neutral-800"
+                      href="#"
+                    >
+                      Sign up
+                    </a>
+                  </div>
+                  <!-- End Card -->
+                </div>
+                <!-- End Grid -->
+
+                <!-- Comparison table -->
+                <div class="mt-20 lg:mt-32">
+                  <div class="mb-10 lg:mb-20 lg:text-center">
+                    <h3 class="text-2xl font-semibold dark:text-white">
+                      Compare plans
+                    </h3>
+                  </div>
+
+                  <!-- xs to lg -->
+                  <div class="space-y-24 lg:hidden">
+                    <section>
+                      <div class="mb-4 px-4">
+                        <h2 class="text-gray-800 text-lg font-medium leading-6">
+                          Free
+                        </h2>
+                      </div>
+                      <table class="w-full">
+                        <caption
+                          class="bg-gray-50 border-gray-200 text-gray-800 border-t py-3 px-4 text-start text-sm font-bold dark:border-neutral-700 dark:bg-neutral-700 dark:text-white"
+                        >
+                          Financial data
+                        </caption>
+                        <thead>
+                          <tr>
+                            <th class="sr-only" scope="col">Feature</th>
+                            <th class="sr-only" scope="col">Included</th>
+                          </tr>
+                        </thead>
+                        <tbody
+                          class="divide-gray-200 divide-y dark:divide-neutral-700"
+                        >
+                          <tr
+                            class="border-gray-200 border-t dark:border-neutral-700"
+                          >
+                            <th
+                              class="text-gray-600 whitespace-nowrap py-5 px-4 text-start text-sm font-normal dark:text-neutral-400"
+                              scope="row"
+                            >
+                              Open/High/Low/Close
+                            </th>
+                            <td class="pe-4 py-5">
+                              <!-- Check -->
+                              <svg
+                                class="ms-auto size-5 shrink-0 text-blue-600 dark:text-blue-500"
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="24"
+                                height="24"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              >
+                                <polyline points="20 6 9 17 4 12" />
+                              </svg>
+                              <!-- End Solid Check -->
+                              <span class="sr-only">Yes</span>
+                            </td>
+                          </tr>
+
+                          <tr
+                            class="border-gray-200 border-t dark:border-neutral-700"
+                          >
+                            <th
+                              class="text-gray-600 whitespace-nowrap py-5 px-4 text-start text-sm font-normal dark:text-neutral-400"
+                              scope="row"
+                            >
+                              Price-volume difference indicator
+                            </th>
+                            <td class="pe-4 py-5">
+                              <!-- Minus -->
+                              <svg
+                                class="ms-auto size-5 text-gray-400 shrink-0 dark:text-neutral-600"
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="24"
+                                height="24"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              >
+                                <path d="M5 12h14" />
+                              </svg>
+                              <!-- Minus -->
+                              <span class="sr-only">No</span>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+
+                      <table class="w-full">
+                        <caption
+                          class="bg-gray-50 border-gray-200 text-gray-800 border-t py-3 px-4 text-start text-sm font-bold dark:border-neutral-700 dark:bg-neutral-700 dark:text-white"
+                        >
+                          On-chain data
+                        </caption>
+                        <thead>
+                          <tr>
+                            <th class="sr-only" scope="col">Feature</th>
+                            <th class="sr-only" scope="col">Included</th>
+                          </tr>
+                        </thead>
+                        <tbody
+                          class="divide-gray-200 divide-y dark:divide-neutral-700"
+                        >
+                          <tr
+                            class="border-gray-200 border-t dark:border-neutral-700"
+                          >
+                            <th
+                              class="text-gray-600 whitespace-nowrap py-5 px-4 text-start text-sm font-normal dark:text-neutral-400"
+                              scope="row"
+                            >
+                              Network growth
+                            </th>
+                            <td class="pe-4 py-5">
+                              <!-- Minus -->
+                              <svg
+                                class="ms-auto size-5 text-gray-400 shrink-0 dark:text-neutral-600"
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="24"
+                                height="24"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              >
+                                <path d="M5 12h14" />
+                              </svg>
+                              <!-- Minus -->
+                              <span class="sr-only">No</span>
+                            </td>
+                          </tr>
+
+                          <tr
+                            class="border-gray-200 border-t dark:border-neutral-700"
+                          >
+                            <th
+                              class="text-gray-600 whitespace-nowrap py-5 px-4 text-start text-sm font-normal dark:text-neutral-400"
+                              scope="row"
+                            >
+                              Average token age consumed
+                            </th>
+                            <td class="pe-4 py-5">
+                              <!-- Check -->
+                              <svg
+                                class="ms-auto size-5 shrink-0 text-blue-600 dark:text-blue-500"
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="24"
+                                height="24"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              >
+                                <polyline points="20 6 9 17 4 12" />
+                              </svg>
+                              <!-- End Solid Check -->
+                              <span class="sr-only">Yes</span>
+                            </td>
+                          </tr>
+
+                          <tr
+                            class="border-gray-200 border-t dark:border-neutral-700"
+                          >
+                            <th
+                              class="text-gray-600 whitespace-nowrap py-5 px-4 text-start text-sm font-normal dark:text-neutral-400"
+                              scope="row"
+                            >
+                              Exchange flow
+                            </th>
+                            <td class="pe-4 py-5">
+                              <!-- Minus -->
+                              <svg
+                                class="ms-auto size-5 text-gray-400 shrink-0 dark:text-neutral-600"
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="24"
+                                height="24"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              >
+                                <path d="M5 12h14" />
+                              </svg>
+                              <!-- Minus -->
+                              <span class="sr-only">No</span>
+                            </td>
+                          </tr>
+
+                          <tr
+                            class="border-gray-200 border-t dark:border-neutral-700"
+                          >
+                            <th
+                              class="text-gray-600 whitespace-nowrap py-5 px-4 text-start text-sm font-normal dark:text-neutral-400"
+                              scope="row"
+                            >
+                              Total ERC20 exchange funds flow
+                            </th>
+                            <td class="pe-4 py-5">
+                              <!-- Minus -->
+                              <svg
+                                class="ms-auto size-5 text-gray-400 shrink-0 dark:text-neutral-600"
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="24"
+                                height="24"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              >
+                                <path d="M5 12h14" />
+                              </svg>
+                              <!-- Minus -->
+                              <span class="sr-only">No</span>
+                            </td>
+                          </tr>
+
+                          <tr
+                            class="border-gray-200 border-t dark:border-neutral-700"
+                          >
+                            <th
+                              class="text-gray-600 whitespace-nowrap py-5 px-4 text-start text-sm font-normal dark:text-neutral-400"
+                              scope="row"
+                            >
+                              Transaction volume
+                            </th>
+                            <td class="pe-4 py-5">
+                              <!-- Check -->
+                              <svg
+                                class="ms-auto size-5 shrink-0 text-blue-600 dark:text-blue-500"
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="24"
+                                height="24"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              >
+                                <polyline points="20 6 9 17 4 12" />
+                              </svg>
+                              <!-- End Solid Check -->
+                              <span class="sr-only">Yes</span>
+                            </td>
+                          </tr>
+
+                          <tr
+                            class="border-gray-200 border-t dark:border-neutral-700"
+                          >
+                            <th
+                              class="text-gray-600 whitespace-nowrap py-5 px-4 text-start text-sm font-normal dark:text-neutral-400"
+                              scope="row"
+                            >
+                              Total circulation (beta)
+                            </th>
+                            <td class="pe-4 py-5">
+                              <!-- Minus -->
+                              <svg
+                                class="ms-auto size-5 text-gray-400 shrink-0 dark:text-neutral-600"
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="24"
+                                height="24"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              >
+                                <path d="M5 12h14" />
+                              </svg>
+                              <!-- Minus -->
+                              <span class="sr-only">No</span>
+                            </td>
+                          </tr>
+
+                          <tr
+                            class="border-gray-200 border-t dark:border-neutral-700"
+                          >
+                            <th
+                              class="text-gray-600 whitespace-nowrap py-5 px-4 text-start text-sm font-normal dark:text-neutral-400"
+                              scope="row"
+                            >
+                              Velocity of tokens (beta)
+                            </th>
+                            <td class="pe-4 py-5">
+                              <!-- Check -->
+                              <svg
+                                class="ms-auto size-5 shrink-0 text-blue-600 dark:text-blue-500"
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="24"
+                                height="24"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              >
+                                <polyline points="20 6 9 17 4 12" />
+                              </svg>
+                              <!-- End Solid Check -->
+                              <span class="sr-only">Yes</span>
+                            </td>
+                          </tr>
+
+                          <tr
+                            class="border-gray-200 border-t dark:border-neutral-700"
+                          >
+                            <th
+                              class="text-gray-600 whitespace-nowrap py-5 px-4 text-start text-sm font-normal dark:text-neutral-400"
+                              scope="row"
+                            >
+                              ETH gas used
+                            </th>
+                            <td class="pe-4 py-5">
+                              <!-- Minus -->
+                              <svg
+                                class="ms-auto size-5 text-gray-400 shrink-0 dark:text-neutral-600"
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="24"
+                                height="24"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              >
+                                <path d="M5 12h14" />
+                              </svg>
+                              <!-- Minus -->
+                              <span class="sr-only">No</span>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+
+                      <table class="w-full">
+                        <caption
+                          class="bg-gray-50 border-gray-200 text-gray-800 border-t py-3 px-4 text-start text-sm font-bold dark:border-neutral-700 dark:bg-neutral-700 dark:text-white"
+                        >
+                          Social data
+                        </caption>
+                        <thead>
+                          <tr>
+                            <th class="sr-only" scope="col">Feature</th>
+                            <th class="sr-only" scope="col">Included</th>
+                          </tr>
+                        </thead>
+                        <tbody
+                          class="divide-gray-200 divide-y dark:divide-neutral-700"
+                        >
+                          <tr
+                            class="border-gray-200 border-t dark:border-neutral-700"
+                          >
+                            <th
+                              class="text-gray-600 whitespace-nowrap py-5 px-4 text-start text-sm font-normal dark:text-neutral-400"
+                              scope="row"
+                            >
+                              Dev activity
+                            </th>
+                            <td class="pe-4 py-5">
+                              <!-- Minus -->
+                              <svg
+                                class="ms-auto size-5 text-gray-400 shrink-0 dark:text-neutral-600"
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="24"
+                                height="24"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              >
+                                <path d="M5 12h14" />
+                              </svg>
+                              <!-- Minus -->
+                              <span class="sr-only">No</span>
+                            </td>
+                          </tr>
+
+                          <tr
+                            class="border-gray-200 border-t dark:border-neutral-700"
+                          >
+                            <th
+                              class="text-gray-600 whitespace-nowrap py-5 px-4 text-start text-sm font-normal dark:text-neutral-400"
+                              scope="row"
+                            >
+                              Topic search
+                            </th>
+                            <td class="pe-4 py-5">
+                              <!-- Check -->
+                              <svg
+                                class="ms-auto size-5 shrink-0 text-blue-600 dark:text-blue-500"
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="24"
+                                height="24"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              >
+                                <polyline points="20 6 9 17 4 12" />
+                              </svg>
+                              <!-- End Solid Check -->
+                              <span class="sr-only">Yes</span>
+                            </td>
+                          </tr>
+
+                          <tr
+                            class="border-gray-200 border-t dark:border-neutral-700"
+                          >
+                            <th
+                              class="text-gray-600 whitespace-nowrap py-5 px-4 text-start text-sm font-normal dark:text-neutral-400"
+                              scope="row"
+                            >
+                              Relative social dominance
+                            </th>
+                            <td class="pe-4 py-5">
+                              <!-- Minus -->
+                              <svg
+                                class="ms-auto size-5 text-gray-400 shrink-0 dark:text-neutral-600"
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="24"
+                                height="24"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              >
+                                <path d="M5 12h14" />
+                              </svg>
+                              <!-- Minus -->
+                              <span class="sr-only">No</span>
+                            </td>
+                          </tr>
+
+                          <tr
+                            class="border-gray-200 border-t dark:border-neutral-700"
+                          >
+                            <th
+                              class="text-gray-600 whitespace-nowrap py-5 px-4 text-start text-sm font-normal dark:text-neutral-400"
+                              scope="row"
+                            >
+                              Total social volume
+                            </th>
+                            <td class="pe-4 py-5">
+                              <!-- Minus -->
+                              <svg
+                                class="ms-auto size-5 text-gray-400 shrink-0 dark:text-neutral-600"
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="24"
+                                height="24"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              >
+                                <path d="M5 12h14" />
+                              </svg>
+                              <!-- Minus -->
+                              <span class="sr-only">No</span>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </section>
+
+                    <section>
+                      <div class="mb-4 px-4">
+                        <h2 class="text-gray-800 text-lg font-medium leading-6">
+                          Startup
+                        </h2>
+                      </div>
+                      <table class="w-full">
+                        <caption
+                          class="bg-gray-50 border-gray-200 text-gray-800 border-t py-3 px-4 text-start text-sm font-bold dark:border-neutral-700 dark:bg-neutral-700 dark:text-white"
+                        >
+                          Financial data
+                        </caption>
+                        <thead>
+                          <tr>
+                            <th class="sr-only" scope="col">Feature</th>
+                            <th class="sr-only" scope="col">Included</th>
+                          </tr>
+                        </thead>
+                        <tbody
+                          class="divide-gray-200 divide-y dark:divide-neutral-700"
+                        >
+                          <tr
+                            class="border-gray-200 border-t dark:border-neutral-700"
+                          >
+                            <th
+                              class="text-gray-600 whitespace-nowrap py-5 px-4 text-start text-sm font-normal dark:text-neutral-400"
+                              scope="row"
+                            >
+                              Open/High/Low/Close
+                            </th>
+                            <td class="pe-4 py-5">
+                              <!-- Check -->
+                              <svg
+                                class="ms-auto size-5 shrink-0 text-blue-600 dark:text-blue-500"
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="24"
+                                height="24"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              >
+                                <polyline points="20 6 9 17 4 12" />
+                              </svg>
+                              <!-- End Solid Check -->
+                              <span class="sr-only">Yes</span>
+                            </td>
+                          </tr>
+
+                          <tr
+                            class="border-gray-200 border-t dark:border-neutral-700"
+                          >
+                            <th
+                              class="text-gray-600 whitespace-nowrap py-5 px-4 text-start text-sm font-normal dark:text-neutral-400"
+                              scope="row"
+                            >
+                              Price-volume difference indicator
+                            </th>
+                            <td class="pe-4 py-5">
+                              <!-- Check -->
+                              <svg
+                                class="ms-auto size-5 shrink-0 text-blue-600 dark:text-blue-500"
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="24"
+                                height="24"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              >
+                                <polyline points="20 6 9 17 4 12" />
+                              </svg>
+                              <!-- End Solid Check -->
+                              <span class="sr-only">Yes</span>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+
+                      <table class="w-full">
+                        <caption
+                          class="bg-gray-50 border-gray-200 text-gray-800 border-t py-3 px-4 text-start text-sm font-bold dark:border-neutral-700 dark:bg-neutral-700 dark:text-white"
+                        >
+                          On-chain data
+                        </caption>
+                        <thead>
+                          <tr>
+                            <th class="sr-only" scope="col">Feature</th>
+                            <th class="sr-only" scope="col">Included</th>
+                          </tr>
+                        </thead>
+                        <tbody
+                          class="divide-gray-200 divide-y dark:divide-neutral-700"
+                        >
+                          <tr
+                            class="border-gray-200 border-t dark:border-neutral-700"
+                          >
+                            <th
+                              class="text-gray-600 whitespace-nowrap py-5 px-4 text-start text-sm font-normal dark:text-neutral-400"
+                              scope="row"
+                            >
+                              Network growth
+                            </th>
+                            <td class="pe-4 py-5">
+                              <!-- Minus -->
+                              <svg
+                                class="ms-auto size-5 text-gray-400 shrink-0 dark:text-neutral-600"
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="24"
+                                height="24"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              >
+                                <path d="M5 12h14" />
+                              </svg>
+                              <!-- Minus -->
+                              <span class="sr-only">No</span>
+                            </td>
+                          </tr>
+
+                          <tr
+                            class="border-gray-200 border-t dark:border-neutral-700"
+                          >
+                            <th
+                              class="text-gray-600 whitespace-nowrap py-5 px-4 text-start text-sm font-normal dark:text-neutral-400"
+                              scope="row"
+                            >
+                              Average token age consumed
+                            </th>
+                            <td class="pe-4 py-5">
+                              <!-- Minus -->
+                              <svg
+                                class="ms-auto size-5 text-gray-400 shrink-0 dark:text-neutral-600"
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="24"
+                                height="24"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              >
+                                <path d="M5 12h14" />
+                              </svg>
+                              <!-- Minus -->
+                              <span class="sr-only">No</span>
+                            </td>
+                          </tr>
+
+                          <tr
+                            class="border-gray-200 border-t dark:border-neutral-700"
+                          >
+                            <th
+                              class="text-gray-600 whitespace-nowrap py-5 px-4 text-start text-sm font-normal dark:text-neutral-400"
+                              scope="row"
+                            >
+                              Exchange flow
+                            </th>
+                            <td class="pe-4 py-5">
+                              <!-- Minus -->
+                              <svg
+                                class="ms-auto size-5 text-gray-400 shrink-0 dark:text-neutral-600"
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="24"
+                                height="24"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              >
+                                <path d="M5 12h14" />
+                              </svg>
+                              <!-- Minus -->
+                              <span class="sr-only">No</span>
+                            </td>
+                          </tr>
+
+                          <tr
+                            class="border-gray-200 border-t dark:border-neutral-700"
+                          >
+                            <th
+                              class="text-gray-600 whitespace-nowrap py-5 px-4 text-start text-sm font-normal dark:text-neutral-400"
+                              scope="row"
+                            >
+                              Total ERC20 exchange funds flow
+                            </th>
+                            <td class="pe-4 py-5">
+                              <!-- Minus -->
+                              <svg
+                                class="ms-auto size-5 text-gray-400 shrink-0 dark:text-neutral-600"
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="24"
+                                height="24"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              >
+                                <path d="M5 12h14" />
+                              </svg>
+                              <!-- Minus -->
+                              <span class="sr-only">No</span>
+                            </td>
+                          </tr>
+
+                          <tr
+                            class="border-gray-200 border-t dark:border-neutral-700"
+                          >
+                            <th
+                              class="text-gray-600 whitespace-nowrap py-5 px-4 text-start text-sm font-normal dark:text-neutral-400"
+                              scope="row"
+                            >
+                              Transaction volume
+                            </th>
+                            <td class="pe-4 py-5">
+                              <!-- Check -->
+                              <svg
+                                class="ms-auto size-5 shrink-0 text-blue-600 dark:text-blue-500"
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="24"
+                                height="24"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              >
+                                <polyline points="20 6 9 17 4 12" />
+                              </svg>
+                              <!-- End Solid Check -->
+                              <span class="sr-only">Yes</span>
+                            </td>
+                          </tr>
+
+                          <tr
+                            class="border-gray-200 border-t dark:border-neutral-700"
+                          >
+                            <th
+                              class="text-gray-600 whitespace-nowrap py-5 px-4 text-start text-sm font-normal dark:text-neutral-400"
+                              scope="row"
+                            >
+                              Total circulation (beta)
+                            </th>
+                            <td class="pe-4 py-5">
+                              <!-- Check -->
+                              <svg
+                                class="ms-auto size-5 shrink-0 text-blue-600 dark:text-blue-500"
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="24"
+                                height="24"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              >
+                                <polyline points="20 6 9 17 4 12" />
+                              </svg>
+                              <!-- End Solid Check -->
+                              <span class="sr-only">Yes</span>
+                            </td>
+                          </tr>
+
+                          <tr
+                            class="border-gray-200 border-t dark:border-neutral-700"
+                          >
+                            <th
+                              class="text-gray-600 whitespace-nowrap py-5 px-4 text-start text-sm font-normal dark:text-neutral-400"
+                              scope="row"
+                            >
+                              Velocity of tokens (beta)
+                            </th>
+                            <td class="pe-4 py-5">
+                              <!-- Check -->
+                              <svg
+                                class="ms-auto size-5 shrink-0 text-blue-600 dark:text-blue-500"
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="24"
+                                height="24"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              >
+                                <polyline points="20 6 9 17 4 12" />
+                              </svg>
+                              <!-- End Solid Check -->
+                              <span class="sr-only">Yes</span>
+                            </td>
+                          </tr>
+
+                          <tr
+                            class="border-gray-200 border-t dark:border-neutral-700"
+                          >
+                            <th
+                              class="text-gray-600 whitespace-nowrap py-5 px-4 text-start text-sm font-normal dark:text-neutral-400"
+                              scope="row"
+                            >
+                              ETH gas used
+                            </th>
+                            <td class="pe-4 py-5">
+                              <!-- Check -->
+                              <svg
+                                class="ms-auto size-5 shrink-0 text-blue-600 dark:text-blue-500"
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="24"
+                                height="24"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              >
+                                <polyline points="20 6 9 17 4 12" />
+                              </svg>
+                              <!-- End Solid Check -->
+                              <span class="sr-only">Yes</span>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+
+                      <table class="w-full">
+                        <caption
+                          class="bg-gray-50 border-gray-200 text-gray-800 border-t py-3 px-4 text-start text-sm font-bold dark:border-neutral-700 dark:bg-neutral-700 dark:text-white"
+                        >
+                          Social data
+                        </caption>
+                        <thead>
+                          <tr>
+                            <th class="sr-only" scope="col">Feature</th>
+                            <th class="sr-only" scope="col">Included</th>
+                          </tr>
+                        </thead>
+                        <tbody
+                          class="divide-gray-200 divide-y dark:divide-neutral-700"
+                        >
+                          <tr
+                            class="border-gray-200 border-t dark:border-neutral-700"
+                          >
+                            <th
+                              class="text-gray-600 whitespace-nowrap py-5 px-4 text-start text-sm font-normal dark:text-neutral-400"
+                              scope="row"
+                            >
+                              Dev activity
+                            </th>
+                            <td class="pe-4 py-5">
+                              <!-- Check -->
+                              <svg
+                                class="ms-auto size-5 shrink-0 text-blue-600 dark:text-blue-500"
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="24"
+                                height="24"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              >
+                                <polyline points="20 6 9 17 4 12" />
+                              </svg>
+                              <!-- End Solid Check -->
+                              <span class="sr-only">Yes</span>
+                            </td>
+                          </tr>
+
+                          <tr
+                            class="border-gray-200 border-t dark:border-neutral-700"
+                          >
+                            <th
+                              class="text-gray-600 whitespace-nowrap py-5 px-4 text-start text-sm font-normal dark:text-neutral-400"
+                              scope="row"
+                            >
+                              Topic search
+                            </th>
+                            <td class="pe-4 py-5">
+                              <!-- Check -->
+                              <svg
+                                class="ms-auto size-5 shrink-0 text-blue-600 dark:text-blue-500"
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="24"
+                                height="24"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              >
+                                <polyline points="20 6 9 17 4 12" />
+                              </svg>
+                              <!-- End Solid Check -->
+                              <span class="sr-only">Yes</span>
+                            </td>
+                          </tr>
+
+                          <tr
+                            class="border-gray-200 border-t dark:border-neutral-700"
+                          >
+                            <th
+                              class="text-gray-600 whitespace-nowrap py-5 px-4 text-start text-sm font-normal dark:text-neutral-400"
+                              scope="row"
+                            >
+                              Relative social dominance
+                            </th>
+                            <td class="pe-4 py-5">
+                              <!-- Minus -->
+                              <svg
+                                class="ms-auto size-5 text-gray-400 shrink-0 dark:text-neutral-600"
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="24"
+                                height="24"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              >
+                                <path d="M5 12h14" />
+                              </svg>
+                              <!-- Minus -->
+                              <span class="sr-only">No</span>
+                            </td>
+                          </tr>
+
+                          <tr
+                            class="border-gray-200 border-t dark:border-neutral-700"
+                          >
+                            <th
+                              class="text-gray-600 whitespace-nowrap py-5 px-4 text-start text-sm font-normal dark:text-neutral-400"
+                              scope="row"
+                            >
+                              Total social volume
+                            </th>
+                            <td class="pe-4 py-5">
+                              <!-- Check -->
+                              <svg
+                                class="ms-auto size-5 shrink-0 text-blue-600 dark:text-blue-500"
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="24"
+                                height="24"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              >
+                                <polyline points="20 6 9 17 4 12" />
+                              </svg>
+                              <!-- End Solid Check -->
+                              <span class="sr-only">Yes</span>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </section>
+
+                    <section>
+                      <div class="mb-4 px-4">
+                        <h2 class="text-gray-800 text-lg font-medium leading-6">
+                          Team
+                        </h2>
+                      </div>
+                      <table class="w-full">
+                        <caption
+                          class="bg-gray-50 border-gray-200 text-gray-800 border-t py-3 px-4 text-start text-sm font-bold dark:border-neutral-700 dark:bg-neutral-700 dark:text-white"
+                        >
+                          Financial data
+                        </caption>
+                        <thead>
+                          <tr>
+                            <th class="sr-only" scope="col">Feature</th>
+                            <th class="sr-only" scope="col">Included</th>
+                          </tr>
+                        </thead>
+                        <tbody
+                          class="divide-gray-200 divide-y dark:divide-neutral-700"
+                        >
+                          <tr
+                            class="border-gray-200 border-t dark:border-neutral-700"
+                          >
+                            <th
+                              class="text-gray-600 whitespace-nowrap py-5 px-4 text-start text-sm font-normal dark:text-neutral-400"
+                              scope="row"
+                            >
+                              Open/High/Low/Close
+                            </th>
+                            <td class="pe-4 py-5">
+                              <!-- Check -->
+                              <svg
+                                class="ms-auto size-5 shrink-0 text-blue-600 dark:text-blue-500"
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="24"
+                                height="24"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              >
+                                <polyline points="20 6 9 17 4 12" />
+                              </svg>
+                              <!-- End Solid Check -->
+                              <span class="sr-only">Yes</span>
+                            </td>
+                          </tr>
+
+                          <tr
+                            class="border-gray-200 border-t dark:border-neutral-700"
+                          >
+                            <th
+                              class="text-gray-600 whitespace-nowrap py-5 px-4 text-start text-sm font-normal dark:text-neutral-400"
+                              scope="row"
+                            >
+                              Price-volume difference indicator
+                            </th>
+                            <td class="pe-4 py-5">
+                              <!-- Check -->
+                              <svg
+                                class="ms-auto size-5 shrink-0 text-blue-600 dark:text-blue-500"
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="24"
+                                height="24"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              >
+                                <polyline points="20 6 9 17 4 12" />
+                              </svg>
+                              <!-- End Solid Check -->
+                              <span class="sr-only">Yes</span>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+
+                      <table class="w-full">
+                        <caption
+                          class="bg-gray-50 border-gray-200 text-gray-800 border-t py-3 px-4 text-start text-sm font-bold dark:border-neutral-700 dark:bg-neutral-700 dark:text-white"
+                        >
+                          On-chain data
+                        </caption>
+                        <thead>
+                          <tr>
+                            <th class="sr-only" scope="col">Feature</th>
+                            <th class="sr-only" scope="col">Included</th>
+                          </tr>
+                        </thead>
+                        <tbody
+                          class="divide-gray-200 divide-y dark:divide-neutral-700"
+                        >
+                          <tr
+                            class="border-gray-200 border-t dark:border-neutral-700"
+                          >
+                            <th
+                              class="text-gray-600 whitespace-nowrap py-5 px-4 text-start text-sm font-normal dark:text-neutral-400"
+                              scope="row"
+                            >
+                              Network growth
+                            </th>
+                            <td class="pe-4 py-5">
+                              <!-- Check -->
+                              <svg
+                                class="ms-auto size-5 shrink-0 text-blue-600 dark:text-blue-500"
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="24"
+                                height="24"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              >
+                                <polyline points="20 6 9 17 4 12" />
+                              </svg>
+                              <!-- End Solid Check -->
+                              <span class="sr-only">Yes</span>
+                            </td>
+                          </tr>
+
+                          <tr
+                            class="border-gray-200 border-t dark:border-neutral-700"
+                          >
+                            <th
+                              class="text-gray-600 whitespace-nowrap py-5 px-4 text-start text-sm font-normal dark:text-neutral-400"
+                              scope="row"
+                            >
+                              Average token age consumed
+                            </th>
+                            <td class="pe-4 py-5">
+                              <!-- Check -->
+                              <svg
+                                class="ms-auto size-5 shrink-0 text-blue-600 dark:text-blue-500"
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="24"
+                                height="24"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              >
+                                <polyline points="20 6 9 17 4 12" />
+                              </svg>
+                              <!-- End Solid Check -->
+                              <span class="sr-only">Yes</span>
+                            </td>
+                          </tr>
+
+                          <tr
+                            class="border-gray-200 border-t dark:border-neutral-700"
+                          >
+                            <th
+                              class="text-gray-600 whitespace-nowrap py-5 px-4 text-start text-sm font-normal dark:text-neutral-400"
+                              scope="row"
+                            >
+                              Exchange flow
+                            </th>
+                            <td class="pe-4 py-5">
+                              <!-- Check -->
+                              <svg
+                                class="ms-auto size-5 shrink-0 text-blue-600 dark:text-blue-500"
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="24"
+                                height="24"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              >
+                                <polyline points="20 6 9 17 4 12" />
+                              </svg>
+                              <!-- End Solid Check -->
+                              <span class="sr-only">Yes</span>
+                            </td>
+                          </tr>
+
+                          <tr
+                            class="border-gray-200 border-t dark:border-neutral-700"
+                          >
+                            <th
+                              class="text-gray-600 whitespace-nowrap py-5 px-4 text-start text-sm font-normal dark:text-neutral-400"
+                              scope="row"
+                            >
+                              Total ERC20 exchange funds flow
+                            </th>
+                            <td class="pe-4 py-5">
+                              <!-- Check -->
+                              <svg
+                                class="ms-auto size-5 shrink-0 text-blue-600 dark:text-blue-500"
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="24"
+                                height="24"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              >
+                                <polyline points="20 6 9 17 4 12" />
+                              </svg>
+                              <!-- End Solid Check -->
+                              <span class="sr-only">Yes</span>
+                            </td>
+                          </tr>
+
+                          <tr
+                            class="border-gray-200 border-t dark:border-neutral-700"
+                          >
+                            <th
+                              class="text-gray-600 whitespace-nowrap py-5 px-4 text-start text-sm font-normal dark:text-neutral-400"
+                              scope="row"
+                            >
+                              Transaction volume
+                            </th>
+                            <td class="pe-4 py-5">
+                              <!-- Check -->
+                              <svg
+                                class="ms-auto size-5 shrink-0 text-blue-600 dark:text-blue-500"
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="24"
+                                height="24"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              >
+                                <polyline points="20 6 9 17 4 12" />
+                              </svg>
+                              <!-- End Solid Check -->
+                              <span class="sr-only">Yes</span>
+                            </td>
+                          </tr>
+
+                          <tr
+                            class="border-gray-200 border-t dark:border-neutral-700"
+                          >
+                            <th
+                              class="text-gray-600 whitespace-nowrap py-5 px-4 text-start text-sm font-normal dark:text-neutral-400"
+                              scope="row"
+                            >
+                              Total circulation (beta)
+                            </th>
+                            <td class="pe-4 py-5">
+                              <!-- Check -->
+                              <svg
+                                class="ms-auto size-5 shrink-0 text-blue-600 dark:text-blue-500"
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="24"
+                                height="24"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              >
+                                <polyline points="20 6 9 17 4 12" />
+                              </svg>
+                              <!-- End Solid Check -->
+                              <span class="sr-only">Yes</span>
+                            </td>
+                          </tr>
+
+                          <tr
+                            class="border-gray-200 border-t dark:border-neutral-700"
+                          >
+                            <th
+                              class="text-gray-600 whitespace-nowrap py-5 px-4 text-start text-sm font-normal dark:text-neutral-400"
+                              scope="row"
+                            >
+                              Velocity of tokens (beta)
+                            </th>
+                            <td class="pe-4 py-5">
+                              <!-- Minus -->
+                              <svg
+                                class="ms-auto size-5 text-gray-400 shrink-0 dark:text-neutral-600"
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="24"
+                                height="24"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              >
+                                <path d="M5 12h14" />
+                              </svg>
+                              <!-- Minus -->
+                              <span class="sr-only">No</span>
+                            </td>
+                          </tr>
+
+                          <tr
+                            class="border-gray-200 border-t dark:border-neutral-700"
+                          >
+                            <th
+                              class="text-gray-600 whitespace-nowrap py-5 px-4 text-start text-sm font-normal dark:text-neutral-400"
+                              scope="row"
+                            >
+                              ETH gas used
+                            </th>
+                            <td class="pe-4 py-5">
+                              <!-- Check -->
+                              <svg
+                                class="ms-auto size-5 shrink-0 text-blue-600 dark:text-blue-500"
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="24"
+                                height="24"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              >
+                                <polyline points="20 6 9 17 4 12" />
+                              </svg>
+                              <!-- End Solid Check -->
+                              <span class="sr-only">Yes</span>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+
+                      <table class="w-full">
+                        <caption
+                          class="bg-gray-50 border-gray-200 text-gray-800 border-t py-3 px-4 text-start text-sm font-bold dark:border-neutral-700 dark:bg-neutral-700 dark:text-white"
+                        >
+                          Social data
+                        </caption>
+                        <thead>
+                          <tr>
+                            <th class="sr-only" scope="col">Feature</th>
+                            <th class="sr-only" scope="col">Included</th>
+                          </tr>
+                        </thead>
+                        <tbody
+                          class="divide-gray-200 divide-y dark:divide-neutral-700"
+                        >
+                          <tr
+                            class="border-gray-200 border-t dark:border-neutral-700"
+                          >
+                            <th
+                              class="text-gray-600 whitespace-nowrap py-5 px-4 text-start text-sm font-normal dark:text-neutral-400"
+                              scope="row"
+                            >
+                              Dev activity
+                            </th>
+                            <td class="pe-4 py-5">
+                              <!-- Minus -->
+                              <svg
+                                class="ms-auto size-5 text-gray-400 shrink-0 dark:text-neutral-600"
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="24"
+                                height="24"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              >
+                                <path d="M5 12h14" />
+                              </svg>
+                              <!-- Minus -->
+                              <span class="sr-only">No</span>
+                            </td>
+                          </tr>
+
+                          <tr
+                            class="border-gray-200 border-t dark:border-neutral-700"
+                          >
+                            <th
+                              class="text-gray-600 whitespace-nowrap py-5 px-4 text-start text-sm font-normal dark:text-neutral-400"
+                              scope="row"
+                            >
+                              Topic search
+                            </th>
+                            <td class="pe-4 py-5">
+                              <!-- Check -->
+                              <svg
+                                class="ms-auto size-5 shrink-0 text-blue-600 dark:text-blue-500"
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="24"
+                                height="24"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              >
+                                <polyline points="20 6 9 17 4 12" />
+                              </svg>
+                              <!-- End Solid Check -->
+                              <span class="sr-only">Yes</span>
+                            </td>
+                          </tr>
+
+                          <tr
+                            class="border-gray-200 border-t dark:border-neutral-700"
+                          >
+                            <th
+                              class="text-gray-600 whitespace-nowrap py-5 px-4 text-start text-sm font-normal dark:text-neutral-400"
+                              scope="row"
+                            >
+                              Relative social dominance
+                            </th>
+                            <td class="pe-4 py-5">
+                              <!-- Check -->
+                              <svg
+                                class="ms-auto size-5 shrink-0 text-blue-600 dark:text-blue-500"
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="24"
+                                height="24"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              >
+                                <polyline points="20 6 9 17 4 12" />
+                              </svg>
+                              <!-- End Solid Check -->
+                              <span class="sr-only">Yes</span>
+                            </td>
+                          </tr>
+
+                          <tr
+                            class="border-gray-200 border-t dark:border-neutral-700"
+                          >
+                            <th
+                              class="text-gray-600 whitespace-nowrap py-5 px-4 text-start text-sm font-normal dark:text-neutral-400"
+                              scope="row"
+                            >
+                              Total social volume
+                            </th>
+                            <td class="pe-4 py-5">
+                              <!-- Minus -->
+                              <svg
+                                class="ms-auto size-5 text-gray-400 shrink-0 dark:text-neutral-600"
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="24"
+                                height="24"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              >
+                                <path d="M5 12h14" />
+                              </svg>
+                              <!-- Minus -->
+                              <span class="sr-only">No</span>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </section>
+
+                    <section>
+                      <div class="mb-4 px-4">
+                        <h2 class="text-gray-800 text-lg font-medium leading-6">
+                          Enterprise
+                        </h2>
+                      </div>
+                      <table class="w-full">
+                        <caption
+                          class="bg-gray-50 border-gray-200 text-gray-800 border-t py-3 px-4 text-start text-sm font-bold dark:border-neutral-700 dark:bg-neutral-700 dark:text-white"
+                        >
+                          Financial data
+                        </caption>
+                        <thead>
+                          <tr>
+                            <th class="sr-only" scope="col">Feature</th>
+                            <th class="sr-only" scope="col">Included</th>
+                          </tr>
+                        </thead>
+                        <tbody
+                          class="divide-gray-200 divide-y dark:divide-neutral-700"
+                        >
+                          <tr
+                            class="border-gray-200 border-t dark:border-neutral-700"
+                          >
+                            <th
+                              class="text-gray-600 whitespace-nowrap py-5 px-4 text-start text-sm font-normal dark:text-neutral-400"
+                              scope="row"
+                            >
+                              Open/High/Low/Close
+                            </th>
+                            <td class="pe-4 py-5">
+                              <!-- Check -->
+                              <svg
+                                class="ms-auto size-5 shrink-0 text-blue-600 dark:text-blue-500"
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="24"
+                                height="24"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              >
+                                <polyline points="20 6 9 17 4 12" />
+                              </svg>
+                              <!-- End Solid Check -->
+                              <span class="sr-only">Yes</span>
+                            </td>
+                          </tr>
+
+                          <tr
+                            class="border-gray-200 border-t dark:border-neutral-700"
+                          >
+                            <th
+                              class="text-gray-600 whitespace-nowrap py-5 px-4 text-start text-sm font-normal dark:text-neutral-400"
+                              scope="row"
+                            >
+                              Price-volume difference indicator
+                            </th>
+                            <td class="pe-4 py-5">
+                              <!-- Check -->
+                              <svg
+                                class="ms-auto size-5 shrink-0 text-blue-600 dark:text-blue-500"
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="24"
+                                height="24"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              >
+                                <polyline points="20 6 9 17 4 12" />
+                              </svg>
+                              <!-- End Solid Check -->
+                              <span class="sr-only">Yes</span>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+
+                      <table class="w-full">
+                        <caption
+                          class="bg-gray-50 border-gray-200 text-gray-800 border-t py-3 px-4 text-start text-sm font-bold dark:border-neutral-700 dark:bg-neutral-700 dark:text-white"
+                        >
+                          On-chain data
+                        </caption>
+                        <thead>
+                          <tr>
+                            <th class="sr-only" scope="col">Feature</th>
+                            <th class="sr-only" scope="col">Included</th>
+                          </tr>
+                        </thead>
+                        <tbody
+                          class="divide-gray-200 divide-y dark:divide-neutral-700"
+                        >
+                          <tr
+                            class="border-gray-200 border-t dark:border-neutral-700"
+                          >
+                            <th
+                              class="text-gray-600 whitespace-nowrap py-5 px-4 text-start text-sm font-normal dark:text-neutral-400"
+                              scope="row"
+                            >
+                              Network growth
+                            </th>
+                            <td class="pe-4 py-5">
+                              <!-- Check -->
+                              <svg
+                                class="ms-auto size-5 shrink-0 text-blue-600 dark:text-blue-500"
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="24"
+                                height="24"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              >
+                                <polyline points="20 6 9 17 4 12" />
+                              </svg>
+                              <!-- End Solid Check -->
+                              <span class="sr-only">Yes</span>
+                            </td>
+                          </tr>
+
+                          <tr
+                            class="border-gray-200 border-t dark:border-neutral-700"
+                          >
+                            <th
+                              class="text-gray-600 whitespace-nowrap py-5 px-4 text-start text-sm font-normal dark:text-neutral-400"
+                              scope="row"
+                            >
+                              Average token age consumed
+                            </th>
+                            <td class="pe-4 py-5">
+                              <!-- Check -->
+                              <svg
+                                class="ms-auto size-5 shrink-0 text-blue-600 dark:text-blue-500"
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="24"
+                                height="24"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              >
+                                <polyline points="20 6 9 17 4 12" />
+                              </svg>
+                              <!-- End Solid Check -->
+                              <span class="sr-only">Yes</span>
+                            </td>
+                          </tr>
+
+                          <tr
+                            class="border-gray-200 border-t dark:border-neutral-700"
+                          >
+                            <th
+                              class="text-gray-600 whitespace-nowrap py-5 px-4 text-start text-sm font-normal dark:text-neutral-400"
+                              scope="row"
+                            >
+                              Exchange flow
+                            </th>
+                            <td class="pe-4 py-5">
+                              <!-- Check -->
+                              <svg
+                                class="ms-auto size-5 shrink-0 text-blue-600 dark:text-blue-500"
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="24"
+                                height="24"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              >
+                                <polyline points="20 6 9 17 4 12" />
+                              </svg>
+                              <!-- End Solid Check -->
+                              <span class="sr-only">Yes</span>
+                            </td>
+                          </tr>
+
+                          <tr
+                            class="border-gray-200 border-t dark:border-neutral-700"
+                          >
+                            <th
+                              class="text-gray-600 whitespace-nowrap py-5 px-4 text-start text-sm font-normal dark:text-neutral-400"
+                              scope="row"
+                            >
+                              Total ERC20 exchange funds flow
+                            </th>
+                            <td class="pe-4 py-5">
+                              <!-- Check -->
+                              <svg
+                                class="ms-auto size-5 shrink-0 text-blue-600 dark:text-blue-500"
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="24"
+                                height="24"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              >
+                                <polyline points="20 6 9 17 4 12" />
+                              </svg>
+                              <!-- End Solid Check -->
+                              <span class="sr-only">Yes</span>
+                            </td>
+                          </tr>
+
+                          <tr
+                            class="border-gray-200 border-t dark:border-neutral-700"
+                          >
+                            <th
+                              class="text-gray-600 whitespace-nowrap py-5 px-4 text-start text-sm font-normal dark:text-neutral-400"
+                              scope="row"
+                            >
+                              Transaction volume
+                            </th>
+                            <td class="pe-4 py-5">
+                              <!-- Check -->
+                              <svg
+                                class="ms-auto size-5 shrink-0 text-blue-600 dark:text-blue-500"
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="24"
+                                height="24"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              >
+                                <polyline points="20 6 9 17 4 12" />
+                              </svg>
+                              <!-- End Solid Check -->
+                              <span class="sr-only">Yes</span>
+                            </td>
+                          </tr>
+
+                          <tr
+                            class="border-gray-200 border-t dark:border-neutral-700"
+                          >
+                            <th
+                              class="text-gray-600 whitespace-nowrap py-5 px-4 text-start text-sm font-normal dark:text-neutral-400"
+                              scope="row"
+                            >
+                              Total circulation (beta)
+                            </th>
+                            <td class="pe-4 py-5">
+                              <!-- Check -->
+                              <svg
+                                class="ms-auto size-5 shrink-0 text-blue-600 dark:text-blue-500"
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="24"
+                                height="24"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              >
+                                <polyline points="20 6 9 17 4 12" />
+                              </svg>
+                              <!-- End Solid Check -->
+                              <span class="sr-only">Yes</span>
+                            </td>
+                          </tr>
+
+                          <tr
+                            class="border-gray-200 border-t dark:border-neutral-700"
+                          >
+                            <th
+                              class="text-gray-600 whitespace-nowrap py-5 px-4 text-start text-sm font-normal dark:text-neutral-400"
+                              scope="row"
+                            >
+                              Velocity of tokens (beta)
+                            </th>
+                            <td class="pe-4 py-5">
+                              <!-- Check -->
+                              <svg
+                                class="ms-auto size-5 shrink-0 text-blue-600 dark:text-blue-500"
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="24"
+                                height="24"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              >
+                                <polyline points="20 6 9 17 4 12" />
+                              </svg>
+                              <!-- End Solid Check -->
+                              <span class="sr-only">Yes</span>
+                            </td>
+                          </tr>
+
+                          <tr
+                            class="border-gray-200 border-t dark:border-neutral-700"
+                          >
+                            <th
+                              class="text-gray-600 whitespace-nowrap py-5 px-4 text-start text-sm font-normal dark:text-neutral-400"
+                              scope="row"
+                            >
+                              ETH gas used
+                            </th>
+                            <td class="pe-4 py-5">
+                              <!-- Check -->
+                              <svg
+                                class="ms-auto size-5 shrink-0 text-blue-600 dark:text-blue-500"
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="24"
+                                height="24"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              >
+                                <polyline points="20 6 9 17 4 12" />
+                              </svg>
+                              <!-- End Solid Check -->
+                              <span class="sr-only">Yes</span>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+
+                      <table class="w-full">
+                        <caption
+                          class="bg-gray-50 border-gray-200 text-gray-800 border-t py-3 px-4 text-start text-sm font-bold dark:border-neutral-700 dark:bg-neutral-700 dark:text-white"
+                        >
+                          Social data
+                        </caption>
+                        <thead>
+                          <tr>
+                            <th class="sr-only" scope="col">Feature</th>
+                            <th class="sr-only" scope="col">Included</th>
+                          </tr>
+                        </thead>
+                        <tbody
+                          class="divide-gray-200 divide-y dark:divide-neutral-700"
+                        >
+                          <tr
+                            class="border-gray-200 border-t dark:border-neutral-700"
+                          >
+                            <th
+                              class="text-gray-600 whitespace-nowrap py-5 px-4 text-start text-sm font-normal dark:text-neutral-400"
+                              scope="row"
+                            >
+                              Dev activity
+                            </th>
+                            <td class="pe-4 py-5">
+                              <!-- Check -->
+                              <svg
+                                class="ms-auto size-5 shrink-0 text-blue-600 dark:text-blue-500"
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="24"
+                                height="24"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              >
+                                <polyline points="20 6 9 17 4 12" />
+                              </svg>
+                              <!-- End Solid Check -->
+                              <span class="sr-only">Yes</span>
+                            </td>
+                          </tr>
+
+                          <tr
+                            class="border-gray-200 border-t dark:border-neutral-700"
+                          >
+                            <th
+                              class="text-gray-600 whitespace-nowrap py-5 px-4 text-start text-sm font-normal dark:text-neutral-400"
+                              scope="row"
+                            >
+                              Topic search
+                            </th>
+                            <td class="pe-4 py-5">
+                              <!-- Check -->
+                              <svg
+                                class="ms-auto size-5 shrink-0 text-blue-600 dark:text-blue-500"
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="24"
+                                height="24"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              >
+                                <polyline points="20 6 9 17 4 12" />
+                              </svg>
+                              <!-- End Solid Check -->
+                              <span class="sr-only">Yes</span>
+                            </td>
+                          </tr>
+
+                          <tr
+                            class="border-gray-200 border-t dark:border-neutral-700"
+                          >
+                            <th
+                              class="text-gray-600 whitespace-nowrap py-5 px-4 text-start text-sm font-normal dark:text-neutral-400"
+                              scope="row"
+                            >
+                              Relative social dominance
+                            </th>
+                            <td class="pe-4 py-5">
+                              <!-- Check -->
+                              <svg
+                                class="ms-auto size-5 shrink-0 text-blue-600 dark:text-blue-500"
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="24"
+                                height="24"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              >
+                                <polyline points="20 6 9 17 4 12" />
+                              </svg>
+                              <!-- End Solid Check -->
+                              <span class="sr-only">Yes</span>
+                            </td>
+                          </tr>
+
+                          <tr
+                            class="border-gray-200 border-t dark:border-neutral-700"
+                          >
+                            <th
+                              class="text-gray-600 whitespace-nowrap py-5 px-4 text-start text-sm font-normal dark:text-neutral-400"
+                              scope="row"
+                            >
+                              Total social volume
+                            </th>
+                            <td class="pe-4 py-5">
+                              <!-- Check -->
+                              <svg
+                                class="ms-auto size-5 shrink-0 text-blue-600 dark:text-blue-500"
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="24"
+                                height="24"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              >
+                                <polyline points="20 6 9 17 4 12" />
+                              </svg>
+                              <!-- End Solid Check -->
+                              <span class="sr-only">Yes</span>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </section>
+                  </div>
+                  <!-- End xs to lg -->
+
+                  <!-- lg+ -->
+                  <div class="hidden lg:block">
+                    <table class="h-px w-full">
+                      <caption class="sr-only">
+                        Pricing plan comparison
+                      </caption>
+                      <thead
+                        class="sticky inset-x-0 top-0 bg-white dark:bg-neutral-900"
+                      >
+                        <tr>
+                          <th
+                            class="ps-6 pe-6 text-gray-800 py-4 text-start text-sm font-medium"
+                            scope="col"
+                          >
+                            <span class="sr-only">Feature by</span>
+                            <span class="dark:text-white">Plans</span>
+                          </th>
+
+                          <th
+                            class="text-gray-800 w-1/4 py-4 px-6 text-center text-lg font-medium leading-6 dark:text-white"
+                            scope="col"
+                          >
+                            Free
+                          </th>
+                          <th
+                            class="text-gray-800 w-1/4 py-4 px-6 text-center text-lg font-medium leading-6 dark:text-white"
+                            scope="col"
+                          >
+                            Startup
+                          </th>
+                          <th
+                            class="text-gray-800 w-1/4 py-4 px-6 text-center text-lg font-medium leading-6 dark:text-white"
+                            scope="col"
+                          >
+                            Team
+                          </th>
+                          <th
+                            class="text-gray-800 w-1/4 py-4 px-6 text-center text-lg font-medium leading-6 dark:text-white"
+                            scope="col"
+                          >
+                            Enterprise
+                          </th>
+                        </tr>
+                      </thead>
+                      <tbody
+                        class="border-gray-200 divide-gray-200 divide-y border-t dark:divide-neutral-700 dark:border-neutral-700"
+                      >
+                        <tr>
+                          <th
+                            class="ps-6 bg-gray-50 text-gray-800 py-3 text-start font-bold dark:bg-neutral-800 dark:text-white"
+                            colspan="5"
+                            scope="colgroup"
+                          >
+                            Financial data
+                          </th>
+                        </tr>
+
+                        <tr>
+                          <th
+                            class="ps-6 pe-6 text-gray-600 whitespace-nowrap py-5 text-start text-sm font-normal dark:text-neutral-400"
+                            scope="row"
+                          >
+                            Open/High/Low/Close
+                          </th>
+
+                          <td class="py-5 px-6">
+                            <!-- Check -->
+                            <svg
+                              class="size-5 mx-auto shrink-0 text-blue-600 dark:text-blue-500"
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="24"
+                              height="24"
+                              viewBox="0 0 24 24"
+                              fill="none"
+                              stroke="currentColor"
+                              stroke-width="2"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            >
+                              <polyline points="20 6 9 17 4 12" />
+                            </svg>
+                            <!-- End Solid Check -->
+                            <span class="sr-only">Included in Free</span>
+                          </td>
+
+                          <td class="py-5 px-6">
+                            <!-- Check -->
+                            <svg
+                              class="size-5 mx-auto shrink-0 text-blue-600 dark:text-blue-500"
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="24"
+                              height="24"
+                              viewBox="0 0 24 24"
+                              fill="none"
+                              stroke="currentColor"
+                              stroke-width="2"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            >
+                              <polyline points="20 6 9 17 4 12" />
+                            </svg>
+                            <!-- End Solid Check -->
+                            <span class="sr-only">Included in Startup</span>
+                          </td>
+
+                          <td class="py-5 px-6">
+                            <!-- Check -->
+                            <svg
+                              class="size-5 mx-auto shrink-0 text-blue-600 dark:text-blue-500"
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="24"
+                              height="24"
+                              viewBox="0 0 24 24"
+                              fill="none"
+                              stroke="currentColor"
+                              stroke-width="2"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            >
+                              <polyline points="20 6 9 17 4 12" />
+                            </svg>
+                            <!-- End Solid Check -->
+                            <span class="sr-only">Included in Team</span>
+                          </td>
+
+                          <td class="py-5 px-6">
+                            <!-- Check -->
+                            <svg
+                              class="size-5 mx-auto shrink-0 text-blue-600 dark:text-blue-500"
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="24"
+                              height="24"
+                              viewBox="0 0 24 24"
+                              fill="none"
+                              stroke="currentColor"
+                              stroke-width="2"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            >
+                              <polyline points="20 6 9 17 4 12" />
+                            </svg>
+                            <!-- End Solid Check -->
+                            <span class="sr-only">Included in Enterprise</span>
+                          </td>
+                        </tr>
+
+                        <tr>
+                          <th
+                            class="ps-6 pe-6 text-gray-600 whitespace-nowrap py-5 text-start text-sm font-normal dark:text-neutral-400"
+                            scope="row"
+                          >
+                            Price-volume difference indicator
+                          </th>
+
+                          <td class="py-5 px-6">
+                            <!-- Minus -->
+                            <svg
+                              class="size-5 text-gray-400 mx-auto shrink-0 dark:text-neutral-600"
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="24"
+                              height="24"
+                              viewBox="0 0 24 24"
+                              fill="none"
+                              stroke="currentColor"
+                              stroke-width="2"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            >
+                              <path d="M5 12h14" />
+                            </svg>
+                            <!-- Minus -->
+                            <span class="sr-only">Not included in Free</span>
+                          </td>
+
+                          <td class="py-5 px-6">
+                            <!-- Check -->
+                            <svg
+                              class="size-5 mx-auto shrink-0 text-blue-600 dark:text-blue-500"
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="24"
+                              height="24"
+                              viewBox="0 0 24 24"
+                              fill="none"
+                              stroke="currentColor"
+                              stroke-width="2"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            >
+                              <polyline points="20 6 9 17 4 12" />
+                            </svg>
+                            <!-- End Solid Check -->
+                            <span class="sr-only">Included in Startup</span>
+                          </td>
+
+                          <td class="py-5 px-6">
+                            <!-- Check -->
+                            <svg
+                              class="size-5 mx-auto shrink-0 text-blue-600 dark:text-blue-500"
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="24"
+                              height="24"
+                              viewBox="0 0 24 24"
+                              fill="none"
+                              stroke="currentColor"
+                              stroke-width="2"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            >
+                              <polyline points="20 6 9 17 4 12" />
+                            </svg>
+                            <!-- End Solid Check -->
+                            <span class="sr-only">Included in Team</span>
+                          </td>
+
+                          <td class="py-5 px-6">
+                            <!-- Check -->
+                            <svg
+                              class="size-5 mx-auto shrink-0 text-blue-600 dark:text-blue-500"
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="24"
+                              height="24"
+                              viewBox="0 0 24 24"
+                              fill="none"
+                              stroke="currentColor"
+                              stroke-width="2"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            >
+                              <polyline points="20 6 9 17 4 12" />
+                            </svg>
+                            <!-- End Solid Check -->
+                            <span class="sr-only">Included in Enterprise</span>
+                          </td>
+                        </tr>
+
+                        <tr>
+                          <th
+                            class="ps-6 bg-gray-50 text-gray-800 py-3 text-start font-bold dark:bg-neutral-800 dark:text-white"
+                            colspan="5"
+                            scope="colgroup"
+                          >
+                            On-chain data
+                          </th>
+                        </tr>
+
+                        <tr>
+                          <th
+                            class="ps-6 pe-6 text-gray-600 whitespace-nowrap py-5 text-start text-sm font-normal dark:text-neutral-400"
+                            scope="row"
+                          >
+                            Network growth
+                          </th>
+
+                          <td class="py-5 px-6">
+                            <!-- Check -->
+                            <svg
+                              class="size-5 mx-auto shrink-0 text-blue-600 dark:text-blue-500"
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="24"
+                              height="24"
+                              viewBox="0 0 24 24"
+                              fill="none"
+                              stroke="currentColor"
+                              stroke-width="2"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            >
+                              <polyline points="20 6 9 17 4 12" />
+                            </svg>
+                            <!-- End Solid Check -->
+                            <span class="sr-only">Included in Free</span>
+                          </td>
+
+                          <td class="py-5 px-6">
+                            <!-- Check -->
+                            <svg
+                              class="size-5 text-gray-400 mx-auto shrink-0 dark:text-neutral-600"
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="24"
+                              height="24"
+                              viewBox="0 0 24 24"
+                              fill="none"
+                              stroke="currentColor"
+                              stroke-width="2"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            >
+                              <path d="M5 12h14" />
+                            </svg>
+                            <!-- End Solid Check -->
+                            <span class="sr-only">Included in Startup</span>
+                          </td>
+
+                          <td class="py-5 px-6">
+                            <!-- Check -->
+                            <svg
+                              class="size-5 mx-auto shrink-0 text-blue-600 dark:text-blue-500"
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="24"
+                              height="24"
+                              viewBox="0 0 24 24"
+                              fill="none"
+                              stroke="currentColor"
+                              stroke-width="2"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            >
+                              <polyline points="20 6 9 17 4 12" />
+                            </svg>
+                            <!-- End Solid Check -->
+                            <span class="sr-only">Included in Team</span>
+                          </td>
+
+                          <td class="py-5 px-6">
+                            <!-- Check -->
+                            <svg
+                              class="size-5 mx-auto shrink-0 text-blue-600 dark:text-blue-500"
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="24"
+                              height="24"
+                              viewBox="0 0 24 24"
+                              fill="none"
+                              stroke="currentColor"
+                              stroke-width="2"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            >
+                              <polyline points="20 6 9 17 4 12" />
+                            </svg>
+                            <!-- End Solid Check -->
+                            <span class="sr-only">Included in Enterprise</span>
+                          </td>
+                        </tr>
+
+                        <tr>
+                          <th
+                            class="ps-6 pe-6 text-gray-600 whitespace-nowrap py-5 text-start text-sm font-normal dark:text-neutral-400"
+                            scope="row"
+                          >
+                            Average token age consumed
+                          </th>
+
+                          <td class="py-5 px-6">
+                            <!-- Check -->
+                            <svg
+                              class="size-5 mx-auto shrink-0 text-blue-600 dark:text-blue-500"
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="24"
+                              height="24"
+                              viewBox="0 0 24 24"
+                              fill="none"
+                              stroke="currentColor"
+                              stroke-width="2"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            >
+                              <polyline points="20 6 9 17 4 12" />
+                            </svg>
+                            <!-- End Solid Check -->
+                            <span class="sr-only">Not included in Free</span>
+                          </td>
+
+                          <td class="py-5 px-6">
+                            <!-- Check -->
+                            <svg
+                              class="size-5 text-gray-400 mx-auto shrink-0 dark:text-neutral-600"
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="24"
+                              height="24"
+                              viewBox="0 0 24 24"
+                              fill="none"
+                              stroke="currentColor"
+                              stroke-width="2"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            >
+                              <path d="M5 12h14" />
+                            </svg>
+                            <!-- End Solid Check -->
+                            <span class="sr-only">Included in Startup</span>
+                          </td>
+
+                          <td class="py-5 px-6">
+                            <!-- Check -->
+                            <svg
+                              class="size-5 mx-auto shrink-0 text-blue-600 dark:text-blue-500"
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="24"
+                              height="24"
+                              viewBox="0 0 24 24"
+                              fill="none"
+                              stroke="currentColor"
+                              stroke-width="2"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            >
+                              <polyline points="20 6 9 17 4 12" />
+                            </svg>
+                            <!-- End Solid Check -->
+                            <span class="sr-only">Included in Team</span>
+                          </td>
+
+                          <td class="py-5 px-6">
+                            <!-- Check -->
+                            <svg
+                              class="size-5 mx-auto shrink-0 text-blue-600 dark:text-blue-500"
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="24"
+                              height="24"
+                              viewBox="0 0 24 24"
+                              fill="none"
+                              stroke="currentColor"
+                              stroke-width="2"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            >
+                              <polyline points="20 6 9 17 4 12" />
+                            </svg>
+                            <!-- End Solid Check -->
+                            <span class="sr-only">Included in Enterprise</span>
+                          </td>
+                        </tr>
+
+                        <tr>
+                          <th
+                            class="ps-6 pe-6 text-gray-600 whitespace-nowrap py-5 text-start text-sm font-normal dark:text-neutral-400"
+                            scope="row"
+                          >
+                            Exchange flow
+                          </th>
+
+                          <td class="py-5 px-6">
+                            <!-- Minus -->
+                            <svg
+                              class="size-5 text-gray-400 mx-auto shrink-0 dark:text-neutral-600"
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="24"
+                              height="24"
+                              viewBox="0 0 24 24"
+                              fill="none"
+                              stroke="currentColor"
+                              stroke-width="2"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            >
+                              <path d="M5 12h14" />
+                            </svg>
+                            <!-- Minus -->
+                            <span class="sr-only">Not included in Free</span>
+                          </td>
+
+                          <td class="py-5 px-6">
+                            <!-- Check -->
+                            <svg
+                              class="size-5 text-gray-400 mx-auto shrink-0 dark:text-neutral-600"
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="24"
+                              height="24"
+                              viewBox="0 0 24 24"
+                              fill="none"
+                              stroke="currentColor"
+                              stroke-width="2"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            >
+                              <path d="M5 12h14" />
+                            </svg>
+                            <!-- End Solid Check -->
+                            <span class="sr-only">Included in Startup</span>
+                          </td>
+
+                          <td class="py-5 px-6">
+                            <!-- Check -->
+                            <svg
+                              class="size-5 mx-auto shrink-0 text-blue-600 dark:text-blue-500"
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="24"
+                              height="24"
+                              viewBox="0 0 24 24"
+                              fill="none"
+                              stroke="currentColor"
+                              stroke-width="2"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            >
+                              <polyline points="20 6 9 17 4 12" />
+                            </svg>
+                            <!-- End Solid Check -->
+                            <span class="sr-only">Included in Team</span>
+                          </td>
+
+                          <td class="py-5 px-6">
+                            <!-- Check -->
+                            <svg
+                              class="size-5 mx-auto shrink-0 text-blue-600 dark:text-blue-500"
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="24"
+                              height="24"
+                              viewBox="0 0 24 24"
+                              fill="none"
+                              stroke="currentColor"
+                              stroke-width="2"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            >
+                              <polyline points="20 6 9 17 4 12" />
+                            </svg>
+                            <!-- End Solid Check -->
+                            <span class="sr-only">Included in Enterprise</span>
+                          </td>
+                        </tr>
+
+                        <tr>
+                          <th
+                            class="ps-6 pe-6 text-gray-600 whitespace-nowrap py-5 text-start text-sm font-normal dark:text-neutral-400"
+                            scope="row"
+                          >
+                            Total ERC20 exchange funds flow
+                          </th>
+
+                          <td class="py-5 px-6">
+                            <!-- Minus -->
+                            <svg
+                              class="size-5 text-gray-400 mx-auto shrink-0 dark:text-neutral-600"
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="24"
+                              height="24"
+                              viewBox="0 0 24 24"
+                              fill="none"
+                              stroke="currentColor"
+                              stroke-width="2"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            >
+                              <path d="M5 12h14" />
+                            </svg>
+                            <!-- Minus -->
+                            <span class="sr-only">Not included in Free</span>
+                          </td>
+
+                          <td class="py-5 px-6">
+                            <!-- Check -->
+                            <svg
+                              class="size-5 text-gray-400 mx-auto shrink-0 dark:text-neutral-600"
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="24"
+                              height="24"
+                              viewBox="0 0 24 24"
+                              fill="none"
+                              stroke="currentColor"
+                              stroke-width="2"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            >
+                              <path d="M5 12h14" />
+                            </svg>
+                            <!-- End Solid Check -->
+                            <span class="sr-only">Included in Startup</span>
+                          </td>
+
+                          <td class="py-5 px-6">
+                            <!-- Check -->
+                            <svg
+                              class="size-5 mx-auto shrink-0 text-blue-600 dark:text-blue-500"
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="24"
+                              height="24"
+                              viewBox="0 0 24 24"
+                              fill="none"
+                              stroke="currentColor"
+                              stroke-width="2"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            >
+                              <polyline points="20 6 9 17 4 12" />
+                            </svg>
+                            <!-- End Solid Check -->
+                            <span class="sr-only">Included in Team</span>
+                          </td>
+
+                          <td class="py-5 px-6">
+                            <!-- Check -->
+                            <svg
+                              class="size-5 mx-auto shrink-0 text-blue-600 dark:text-blue-500"
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="24"
+                              height="24"
+                              viewBox="0 0 24 24"
+                              fill="none"
+                              stroke="currentColor"
+                              stroke-width="2"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            >
+                              <polyline points="20 6 9 17 4 12" />
+                            </svg>
+                            <!-- End Solid Check -->
+                            <span class="sr-only">Included in Enterprise</span>
+                          </td>
+                        </tr>
+
+                        <tr>
+                          <th
+                            class="ps-6 pe-6 text-gray-600 whitespace-nowrap py-5 text-start text-sm font-normal dark:text-neutral-400"
+                            scope="row"
+                          >
+                            Transaction volume
+                          </th>
+
+                          <td class="py-5 px-6">
+                            <!-- Check -->
+                            <svg
+                              class="size-5 mx-auto shrink-0 text-blue-600 dark:text-blue-500"
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="24"
+                              height="24"
+                              viewBox="0 0 24 24"
+                              fill="none"
+                              stroke="currentColor"
+                              stroke-width="2"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            >
+                              <polyline points="20 6 9 17 4 12" />
+                            </svg>
+                            <!-- End Solid Check -->
+                            <span class="sr-only">Included in Free</span>
+                          </td>
+
+                          <td class="py-5 px-6">
+                            <!-- Check -->
+                            <svg
+                              class="size-5 mx-auto shrink-0 text-blue-600 dark:text-blue-500"
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="24"
+                              height="24"
+                              viewBox="0 0 24 24"
+                              fill="none"
+                              stroke="currentColor"
+                              stroke-width="2"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            >
+                              <polyline points="20 6 9 17 4 12" />
+                            </svg>
+                            <!-- End Solid Check -->
+                            <span class="sr-only">Included in Startup</span>
+                          </td>
+
+                          <td class="py-5 px-6">
+                            <!-- Check -->
+                            <svg
+                              class="size-5 mx-auto shrink-0 text-blue-600 dark:text-blue-500"
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="24"
+                              height="24"
+                              viewBox="0 0 24 24"
+                              fill="none"
+                              stroke="currentColor"
+                              stroke-width="2"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            >
+                              <polyline points="20 6 9 17 4 12" />
+                            </svg>
+                            <!-- End Solid Check -->
+                            <span class="sr-only">Included in Team</span>
+                          </td>
+
+                          <td class="py-5 px-6">
+                            <!-- Check -->
+                            <svg
+                              class="size-5 mx-auto shrink-0 text-blue-600 dark:text-blue-500"
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="24"
+                              height="24"
+                              viewBox="0 0 24 24"
+                              fill="none"
+                              stroke="currentColor"
+                              stroke-width="2"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            >
+                              <polyline points="20 6 9 17 4 12" />
+                            </svg>
+                            <!-- End Solid Check -->
+                            <span class="sr-only">Included in Enterprise</span>
+                          </td>
+                        </tr>
+
+                        <tr>
+                          <th
+                            class="ps-6 pe-6 text-gray-600 whitespace-nowrap py-5 text-start text-sm font-normal dark:text-neutral-400"
+                            scope="row"
+                          >
+                            Total circulation (beta)
+                          </th>
+
+                          <td class="py-5 px-6">
+                            <!-- Minus -->
+                            <svg
+                              class="size-5 text-gray-400 mx-auto shrink-0 dark:text-neutral-600"
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="24"
+                              height="24"
+                              viewBox="0 0 24 24"
+                              fill="none"
+                              stroke="currentColor"
+                              stroke-width="2"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            >
+                              <path d="M5 12h14" />
+                            </svg>
+                            <!-- Minus -->
+                            <span class="sr-only">Not included in Free</span>
+                          </td>
+
+                          <td class="py-5 px-6">
+                            <!-- Check -->
+                            <svg
+                              class="size-5 mx-auto shrink-0 text-blue-600 dark:text-blue-500"
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="24"
+                              height="24"
+                              viewBox="0 0 24 24"
+                              fill="none"
+                              stroke="currentColor"
+                              stroke-width="2"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            >
+                              <polyline points="20 6 9 17 4 12" />
+                            </svg>
+                            <!-- End Solid Check -->
+                            <span class="sr-only">Included in Startup</span>
+                          </td>
+
+                          <td class="py-5 px-6">
+                            <!-- Check -->
+                            <svg
+                              class="size-5 mx-auto shrink-0 text-blue-600 dark:text-blue-500"
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="24"
+                              height="24"
+                              viewBox="0 0 24 24"
+                              fill="none"
+                              stroke="currentColor"
+                              stroke-width="2"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            >
+                              <polyline points="20 6 9 17 4 12" />
+                            </svg>
+                            <!-- End Solid Check -->
+                            <span class="sr-only">Included in Team</span>
+                          </td>
+
+                          <td class="py-5 px-6">
+                            <!-- Check -->
+                            <svg
+                              class="size-5 mx-auto shrink-0 text-blue-600 dark:text-blue-500"
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="24"
+                              height="24"
+                              viewBox="0 0 24 24"
+                              fill="none"
+                              stroke="currentColor"
+                              stroke-width="2"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            >
+                              <polyline points="20 6 9 17 4 12" />
+                            </svg>
+                            <!-- End Solid Check -->
+                            <span class="sr-only">Included in Enterprise</span>
+                          </td>
+                        </tr>
+
+                        <tr>
+                          <th
+                            class="ps-6 pe-6 text-gray-600 whitespace-nowrap py-5 text-start text-sm font-normal dark:text-neutral-400"
+                            scope="row"
+                          >
+                            Velocity of tokens (beta)
+                          </th>
+
+                          <td class="py-5 px-6">
+                            <!-- Check -->
+                            <svg
+                              class="size-5 mx-auto shrink-0 text-blue-600 dark:text-blue-500"
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="24"
+                              height="24"
+                              viewBox="0 0 24 24"
+                              fill="none"
+                              stroke="currentColor"
+                              stroke-width="2"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            >
+                              <polyline points="20 6 9 17 4 12" />
+                            </svg>
+                            <!-- End Solid Check -->
+                            <span class="sr-only">Not included in Free</span>
+                          </td>
+
+                          <td class="py-5 px-6">
+                            <!-- Check -->
+                            <svg
+                              class="size-5 mx-auto shrink-0 text-blue-600 dark:text-blue-500"
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="24"
+                              height="24"
+                              viewBox="0 0 24 24"
+                              fill="none"
+                              stroke="currentColor"
+                              stroke-width="2"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            >
+                              <polyline points="20 6 9 17 4 12" />
+                            </svg>
+                            <!-- End Solid Check -->
+                            <span class="sr-only">Included in Startup</span>
+                          </td>
+
+                          <td class="py-5 px-6">
+                            <!-- Check -->
+                            <svg
+                              class="size-5 text-gray-400 mx-auto shrink-0 dark:text-neutral-600"
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="24"
+                              height="24"
+                              viewBox="0 0 24 24"
+                              fill="none"
+                              stroke="currentColor"
+                              stroke-width="2"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            >
+                              <path d="M5 12h14" />
+                            </svg>
+                            <!-- End Solid Check -->
+                            <span class="sr-only">Included in Team</span>
+                          </td>
+
+                          <td class="py-5 px-6">
+                            <!-- Check -->
+                            <svg
+                              class="size-5 mx-auto shrink-0 text-blue-600 dark:text-blue-500"
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="24"
+                              height="24"
+                              viewBox="0 0 24 24"
+                              fill="none"
+                              stroke="currentColor"
+                              stroke-width="2"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            >
+                              <polyline points="20 6 9 17 4 12" />
+                            </svg>
+                            <!-- End Solid Check -->
+                            <span class="sr-only">Included in Enterprise</span>
+                          </td>
+                        </tr>
+
+                        <tr>
+                          <th
+                            class="ps-6 pe-6 text-gray-600 whitespace-nowrap py-5 text-start text-sm font-normal dark:text-neutral-400"
+                            scope="row"
+                          >
+                            ETH gas used
+                          </th>
+
+                          <td class="py-5 px-6">
+                            <!-- Minus -->
+                            <svg
+                              class="size-5 text-gray-400 mx-auto shrink-0 dark:text-neutral-600"
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="24"
+                              height="24"
+                              viewBox="0 0 24 24"
+                              fill="none"
+                              stroke="currentColor"
+                              stroke-width="2"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            >
+                              <path d="M5 12h14" />
+                            </svg>
+                            <!-- Minus -->
+                            <span class="sr-only">Not included in Free</span>
+                          </td>
+
+                          <td class="py-5 px-6">
+                            <!-- Check -->
+                            <svg
+                              class="size-5 mx-auto shrink-0 text-blue-600 dark:text-blue-500"
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="24"
+                              height="24"
+                              viewBox="0 0 24 24"
+                              fill="none"
+                              stroke="currentColor"
+                              stroke-width="2"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            >
+                              <polyline points="20 6 9 17 4 12" />
+                            </svg>
+                            <!-- End Solid Check -->
+                            <span class="sr-only">Included in Startup</span>
+                          </td>
+
+                          <td class="py-5 px-6">
+                            <!-- Check -->
+                            <svg
+                              class="size-5 mx-auto shrink-0 text-blue-600 dark:text-blue-500"
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="24"
+                              height="24"
+                              viewBox="0 0 24 24"
+                              fill="none"
+                              stroke="currentColor"
+                              stroke-width="2"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            >
+                              <polyline points="20 6 9 17 4 12" />
+                            </svg>
+                            <!-- End Solid Check -->
+                            <span class="sr-only">Included in Team</span>
+                          </td>
+
+                          <td class="py-5 px-6">
+                            <!-- Check -->
+                            <svg
+                              class="size-5 mx-auto shrink-0 text-blue-600 dark:text-blue-500"
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="24"
+                              height="24"
+                              viewBox="0 0 24 24"
+                              fill="none"
+                              stroke="currentColor"
+                              stroke-width="2"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            >
+                              <polyline points="20 6 9 17 4 12" />
+                            </svg>
+                            <!-- End Solid Check -->
+                            <span class="sr-only">Included in Enterprise</span>
+                          </td>
+                        </tr>
+
+                        <tr>
+                          <th
+                            class="ps-6 bg-gray-50 text-gray-800 py-3 text-start font-bold dark:bg-neutral-800 dark:text-white"
+                            colspan="5"
+                            scope="colgroup"
+                          >
+                            Social data
+                          </th>
+                        </tr>
+
+                        <tr>
+                          <th
+                            class="ps-6 pe-6 text-gray-600 whitespace-nowrap py-5 text-start text-sm font-normal dark:text-neutral-400"
+                            scope="row"
+                          >
+                            Dev activity
+                          </th>
+
+                          <td class="py-5 px-6">
+                            <!-- Minus -->
+                            <svg
+                              class="size-5 text-gray-400 mx-auto shrink-0 dark:text-neutral-600"
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="24"
+                              height="24"
+                              viewBox="0 0 24 24"
+                              fill="none"
+                              stroke="currentColor"
+                              stroke-width="2"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            >
+                              <path d="M5 12h14" />
+                            </svg>
+                            <!-- Minus -->
+                            <span class="sr-only">Included in Free</span>
+                          </td>
+
+                          <td class="py-5 px-6">
+                            <!-- Check -->
+                            <svg
+                              class="size-5 mx-auto shrink-0 text-blue-600 dark:text-blue-500"
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="24"
+                              height="24"
+                              viewBox="0 0 24 24"
+                              fill="none"
+                              stroke="currentColor"
+                              stroke-width="2"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            >
+                              <polyline points="20 6 9 17 4 12" />
+                            </svg>
+                            <!-- End Solid Check -->
+                            <span class="sr-only">Included in Startup</span>
+                          </td>
+
+                          <td class="py-5 px-6">
+                            <!-- Check -->
+                            <svg
+                              class="size-5 text-gray-400 mx-auto shrink-0 dark:text-neutral-600"
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="24"
+                              height="24"
+                              viewBox="0 0 24 24"
+                              fill="none"
+                              stroke="currentColor"
+                              stroke-width="2"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            >
+                              <path d="M5 12h14" />
+                            </svg>
+                            <!-- End Solid Check -->
+                            <span class="sr-only">Included in Team</span>
+                          </td>
+
+                          <td class="py-5 px-6">
+                            <!-- Check -->
+                            <svg
+                              class="size-5 mx-auto shrink-0 text-blue-600 dark:text-blue-500"
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="24"
+                              height="24"
+                              viewBox="0 0 24 24"
+                              fill="none"
+                              stroke="currentColor"
+                              stroke-width="2"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            >
+                              <polyline points="20 6 9 17 4 12" />
+                            </svg>
+                            <!-- End Solid Check -->
+                            <span class="sr-only">Included in Enterprise</span>
+                          </td>
+                        </tr>
+
+                        <tr>
+                          <th
+                            class="ps-6 pe-6 text-gray-600 whitespace-nowrap py-5 text-start text-sm font-normal dark:text-neutral-400"
+                            scope="row"
+                          >
+                            Topic search
+                          </th>
+
+                          <td class="py-5 px-6">
+                            <!-- Check -->
+                            <svg
+                              class="size-5 mx-auto shrink-0 text-blue-600 dark:text-blue-500"
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="24"
+                              height="24"
+                              viewBox="0 0 24 24"
+                              fill="none"
+                              stroke="currentColor"
+                              stroke-width="2"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            >
+                              <polyline points="20 6 9 17 4 12" />
+                            </svg>
+                            <!-- End Solid Check -->
+                            <span class="sr-only">Included in Free</span>
+                          </td>
+
+                          <td class="py-5 px-6">
+                            <!-- Check -->
+                            <svg
+                              class="size-5 mx-auto shrink-0 text-blue-600 dark:text-blue-500"
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="24"
+                              height="24"
+                              viewBox="0 0 24 24"
+                              fill="none"
+                              stroke="currentColor"
+                              stroke-width="2"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            >
+                              <polyline points="20 6 9 17 4 12" />
+                            </svg>
+                            <!-- End Solid Check -->
+                            <span class="sr-only">Included in Startup</span>
+                          </td>
+
+                          <td class="py-5 px-6">
+                            <!-- Check -->
+                            <svg
+                              class="size-5 mx-auto shrink-0 text-blue-600 dark:text-blue-500"
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="24"
+                              height="24"
+                              viewBox="0 0 24 24"
+                              fill="none"
+                              stroke="currentColor"
+                              stroke-width="2"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            >
+                              <polyline points="20 6 9 17 4 12" />
+                            </svg>
+                            <!-- End Solid Check -->
+                            <span class="sr-only">Included in Team</span>
+                          </td>
+
+                          <td class="py-5 px-6">
+                            <!-- Check -->
+                            <svg
+                              class="size-5 mx-auto shrink-0 text-blue-600 dark:text-blue-500"
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="24"
+                              height="24"
+                              viewBox="0 0 24 24"
+                              fill="none"
+                              stroke="currentColor"
+                              stroke-width="2"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            >
+                              <polyline points="20 6 9 17 4 12" />
+                            </svg>
+                            <!-- End Solid Check -->
+                            <span class="sr-only">Included in Enterprise</span>
+                          </td>
+                        </tr>
+
+                        <tr>
+                          <th
+                            class="ps-6 pe-6 text-gray-600 whitespace-nowrap py-5 text-start text-sm font-normal dark:text-neutral-400"
+                            scope="row"
+                          >
+                            Relative social dominance
+                          </th>
+
+                          <td class="py-5 px-6">
+                            <!-- Minus -->
+                            <svg
+                              class="size-5 text-gray-400 mx-auto shrink-0 dark:text-neutral-600"
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="24"
+                              height="24"
+                              viewBox="0 0 24 24"
+                              fill="none"
+                              stroke="currentColor"
+                              stroke-width="2"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            >
+                              <path d="M5 12h14" />
+                            </svg>
+                            <!-- Minus -->
+                            <span class="sr-only">Included in Free</span>
+                          </td>
+
+                          <td class="py-5 px-6">
+                            <!-- Minus -->
+                            <svg
+                              class="size-5 text-gray-400 mx-auto shrink-0 dark:text-neutral-600"
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="24"
+                              height="24"
+                              viewBox="0 0 24 24"
+                              fill="none"
+                              stroke="currentColor"
+                              stroke-width="2"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            >
+                              <path d="M5 12h14" />
+                            </svg>
+                            <!-- Minus -->
+                            <span class="sr-only">Included in Startup</span>
+                          </td>
+
+                          <td class="py-5 px-6">
+                            <!-- Minus -->
+                            <svg
+                              class="size-5 mx-auto shrink-0 text-blue-600 dark:text-blue-500"
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="24"
+                              height="24"
+                              viewBox="0 0 24 24"
+                              fill="none"
+                              stroke="currentColor"
+                              stroke-width="2"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            >
+                              <polyline points="20 6 9 17 4 12" />
+                            </svg>
+                            <!-- Minus -->
+                            <span class="sr-only">Included in Team</span>
+                          </td>
+
+                          <td class="py-5 px-6">
+                            <!-- Minus -->
+                            <svg
+                              class="size-5 mx-auto shrink-0 text-blue-600 dark:text-blue-500"
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="24"
+                              height="24"
+                              viewBox="0 0 24 24"
+                              fill="none"
+                              stroke="currentColor"
+                              stroke-width="2"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            >
+                              <polyline points="20 6 9 17 4 12" />
+                            </svg>
+                            <!-- Minus -->
+                            <span class="sr-only">Included in Enterprise</span>
+                          </td>
+                        </tr>
+
+                        <tr>
+                          <th
+                            class="ps-6 pe-6 text-gray-600 whitespace-nowrap py-5 text-start text-sm font-normal dark:text-neutral-400"
+                            scope="row"
+                          >
+                            Relative social dominance
+                          </th>
+
+                          <td class="py-5 px-6">
+                            <!-- Check -->
+                            <svg
+                              class="size-5 mx-auto shrink-0 text-blue-600 dark:text-blue-500"
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="24"
+                              height="24"
+                              viewBox="0 0 24 24"
+                              fill="none"
+                              stroke="currentColor"
+                              stroke-width="2"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            >
+                              <polyline points="20 6 9 17 4 12" />
+                            </svg>
+                            <!-- End Solid Check -->
+                            <span class="sr-only">Included in Free</span>
+                          </td>
+
+                          <td class="py-5 px-6">
+                            <!-- Check -->
+                            <svg
+                              class="size-5 mx-auto shrink-0 text-blue-600 dark:text-blue-500"
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="24"
+                              height="24"
+                              viewBox="0 0 24 24"
+                              fill="none"
+                              stroke="currentColor"
+                              stroke-width="2"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            >
+                              <polyline points="20 6 9 17 4 12" />
+                            </svg>
+                            <!-- End Solid Check -->
+                            <span class="sr-only">Included in Startup</span>
+                          </td>
+
+                          <td class="py-5 px-6">
+                            <!-- Check -->
+                            <svg
+                              class="size-5 text-gray-400 mx-auto shrink-0 dark:text-neutral-600"
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="24"
+                              height="24"
+                              viewBox="0 0 24 24"
+                              fill="none"
+                              stroke="currentColor"
+                              stroke-width="2"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            >
+                              <path d="M5 12h14" />
+                            </svg>
+                            <!-- End Solid Check -->
+                            <span class="sr-only">Included in Team</span>
+                          </td>
+
+                          <td class="py-5 px-6">
+                            <!-- Check -->
+                            <svg
+                              class="size-5 mx-auto shrink-0 text-blue-600 dark:text-blue-500"
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="24"
+                              height="24"
+                              viewBox="0 0 24 24"
+                              fill="none"
+                              stroke="currentColor"
+                              stroke-width="2"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            >
+                              <polyline points="20 6 9 17 4 12" />
+                            </svg>
+                            <!-- End Solid Check -->
+                            <span class="sr-only">Included in Enterprise</span>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <!-- End lg+ -->
+                </div>
+                <!-- End Comparison table -->
+              </div>
+              <!-- End Pricing -->
+              <!-- ====== Settings Section End -->
+            </div>
+          </div>
+        </main>
+        <!-- ===== Main Content End ===== -->
+      </div>
+      <!-- ===== Content Area End ===== -->
+    </div>
+    <!-- ===== Page Wrapper End ===== -->
+  </body>
+</html>

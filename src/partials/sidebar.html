@@ -1,0 +1,160 @@
+<aside
+  :class="sidebarToggle ? 'translate-x-0' : '-translate-x-full'"
+  class="absolute left-0 top-0 z-9999 flex h-screen w-62.5 flex-col overflow-y-hidden bg-black duration-300 ease-linear dark:bg-boxdark lg:static lg:translate-x-0"
+  @click.outside="sidebarToggle = false"
+>
+  <!-- SIDEBAR HEADER -->
+
+  <!-- SIDEBAR HEADER -->
+
+  <div
+    class="no-scrollbar flex flex-col overflow-y-auto duration-300 ease-linear"
+  >
+    <!-- Sidebar Menu -->
+    <nav
+      class="mt-5 px-4 py-4 lg:mt-9 lg:px-6"
+      x-data="{selected: $persist('Dashboard')}"
+    >
+      <!-- Menu Group -->
+      <div>
+        <ul class="mb-6 flex flex-col gap-1.5">
+          <!-- Menu Item Index -->
+          <!-- Menu Item Dashboard -->
+          <li>
+            <a
+              class="group relative flex items-center gap-2.5 rounded-sm px-4 py-2 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4"
+              href="index.html"
+              @click="selected = (selected === 'Dashboard' ? '' : 'Dashboard')"
+              :class="{ 'bg-graydark dark:bg-meta-4': (selected === 'Dashboard') || (page === 'dashboard') }"
+            >
+             
+
+              Dashboard
+            </a>
+          </li>
+
+          <!-- Menu Item Properties -->
+          <li>
+            <a
+              class="group relative flex items-center gap-2.5 rounded-sm px-4 py-2 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4"
+              href="properties.html"
+              @click="selected = (selected === 'Properties' ? '' : 'Properties')"
+              :class="{ 'bg-graydark dark:bg-meta-4': (selected === 'Properties') || (page === 'properties') }"
+            >
+             
+
+              Properties
+            </a>
+          </li>
+          <!-- Menu Item Properties -->
+
+          <!-- Menu Item Accounting -->
+          <li>
+            <a
+              class="group relative flex items-center gap-2.5 rounded-sm px-4 py-2 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4"
+              href="accounting.html"
+              @click="selected = (selected === 'Accounting' ? '':'Accounting')"
+              :class="{ 'bg-graydark dark:bg-meta-4': (selected === 'Accounting') && (page === 'accounting') }"
+              :class="page === 'accounting' && 'bg-graydark'"
+            >
+              
+
+              Accounting
+            </a>
+          </li>
+          <!-- Menu Item Accounting -->
+
+          <!-- Menu Item Contacts -->
+          <li>
+            <a
+              class="group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4"
+              href="contacts.html"
+              @click="selected = (selected === 'Contacts' ? '':'Contacts')"
+              :class="{ 'bg-graydark dark:bg-meta-4': (selected === 'Contacts') && (page === 'contacts') }"
+            >
+         
+              Contacts
+            </a>
+          </li>
+          <!-- Menu Item Contacts -->
+
+          <!-- Menu Item Reports -->
+          <li>
+            <a
+              class="group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4"
+              href="reports.html"
+              @click="selected = (selected === 'Reports' ? '':'Reports')"
+              :class="{ 'bg-graydark dark:bg-meta-4': (selected === 'Reports') && (page === 'reports') }"
+              :class="page === 'reports' && 'bg-graydark'"
+            >
+              
+
+              Reports
+            </a>
+          </li>
+          <!-- Menu Item Reports -->
+
+          <!-- Menu Item Maintanance -->
+          <li>
+            <a
+              class="group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4"
+              href="maintanance.html"
+              @click="selected = (selected === 'Maintanance' ? '':'Maintanance')"
+              :class="{ 'bg-graydark dark:bg-meta-4': (selected === 'Maintanance') && (page === 'maintanance') }"
+            >
+             
+              Maintanance
+            </a>
+          </li>
+          <!-- Menu Item Maintanance -->
+
+          <!-- Menu Item Applications -->
+          <li>
+            <a
+              class="group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4"
+              href="applications.html"
+              @click="selected = (selected === 'Applications' ? '':'Applications')"
+              :class="{ 'bg-graydark dark:bg-meta-4': (selected === 'Applications') && (page === 'applications') }"
+            >
+              
+               
+
+              Applications
+            </a>
+          </li>
+          <!-- Menu Item Applications -->
+
+          <!-- Menu Item Listings -->
+          <li>
+            <a
+              class="group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4"
+              href="listings.html"
+              @click="selected = (selected === 'Listings' ? '':'Listings')"
+              :class="{ 'bg-graydark dark:bg-meta-4': (selected === 'Listings') && (page === 'listings') }"
+            >
+             
+
+              Listings
+            </a>
+          </li>
+          <!-- Menu Item Listings -->
+          <!-- Menu Item Charts -->
+          <li>
+            <a
+              class="group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4"
+              href="chart.html"
+              @click="selected = (selected === 'Charts' ? '':'Charts')"
+              :class="{ 'bg-graydark dark:bg-meta-4': (selected === 'Charts') && (page === 'charts') }"
+            >
+             
+
+              Charts
+            </a>
+          </li>
+          <!-- Menu Item Charts -->
+        </ul>
+      </div>
+    </nav>
+    <!-- Sidebar Menu -->
+  </div>
+</aside>

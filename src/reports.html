@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Reports - Property Management</title>
+  </head>
+
+  <body
+    x-data="{ page: 'reports', 'loaded': true, 'darkMode': true, 'stickyMenu': false, 'sidebarToggle': false, 'scrollTop': false }"
+    x-init="
+         darkMode = JSON.parse(localStorage.getItem('darkMode'));
+         $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(value)))"
+    :class="{'dark text-bodydark bg-boxdark-2': darkMode === true}"
+  >
+    <!-- ===== Preloader Start ===== -->
+    <include src="./partials/preloader.html"></include>
+    <!-- ===== Preloader End ===== -->
+
+    <!-- ===== Page Wrapper Start ===== -->
+    <div class="flex h-screen overflow-hidden">
+      <!-- ===== Sidebar Start ===== -->
+      <include src="./partials/sidebar.html"></include>
+      <!-- ===== Sidebar End ===== -->
+
+      <!-- ===== Content Area Start ===== -->
+      <div
+        class="relative flex flex-1 flex-col overflow-y-auto overflow-x-hidden"
+      >
+        <!-- ===== Header Start ===== -->
+        <include src="./partials/header.html" />
+        <!-- ===== Header End ===== -->
+
+        <!-- ===== Main Content Start ===== -->
+        <main>
+          <div class="mx-auto max-w-screen-2xl p-4 md:p-6 2xl:p-10">
+            <div class="mx-auto max-w-270">
+              <!-- Breadcrumb Start -->
+              <div
+                class="mb-6 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between"
+              >
+                <div>
+                  <h2
+                    class="text-title-md2 font-bold text-black dark:text-white"
+                  >
+                    Reports
+                  </h2>
+
+                  <nav class="mt-2">
+                    <ol class="flex items-center gap-2">
+                      <li>
+                        <a class="font-medium" href="index.html">Dashboard /</a>
+                      </li>
+                      <li class="font-medium text-primary">Reports</li>
+                    </ol>
+                  </nav>
+                </div>
+                <div>
+                  <button
+                    type="button"
+                    class="inline-flex items-center gap-x-2 rounded-lg border border-transparent  py-3 px-4 text-sm font-medium  focus:outline-none disabled:pointer-events-none disabled:opacity-50"
+                  >
+                    
+                    <svg height="24" id="Layer_1" style="enable-background:new 0 0 512 512;" version="1.1" viewBox="0 0 512 512" width="24" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M344.5,298c15-23.6,23.8-51.6,23.8-81.7c0-84.1-68.1-152.3-152.1-152.3C132.1,64,64,132.2,64,216.3  c0,84.1,68.1,152.3,152.1,152.3c30.5,0,58.9-9,82.7-24.4l6.9-4.8L414.3,448l33.7-34.3L339.5,305.1L344.5,298z M301.4,131.2  c22.7,22.7,35.2,52.9,35.2,85c0,32.1-12.5,62.3-35.2,85c-22.7,22.7-52.9,35.2-85,35.2c-32.1,0-62.3-12.5-85-35.2  c-22.7-22.7-35.2-52.9-35.2-85c0-32.1,12.5-62.3,35.2-85c22.7-22.7,52.9-35.2,85-35.2C248.5,96,278.7,108.5,301.4,131.2z"/></svg>
+                  </button>
+                </div>
+              </div>
+              <!-- Breadcrumb End -->
+
+              <!-- ====== Reports Section Start -->
+              <div class="grid grid-cols-3 gap-4">
+                <div
+                  class="flex flex-col rounded-xl  bg-white shadow-sm dark:border-neutral-700 dark:bg-neutral-900 dark:shadow-neutral-700/70"
+                >
+                  <div class="p-4 md:p-5">
+                    <h3 class="text-gray-800 text-lg font-bold dark:text-white">
+                      Rentability
+                    </h3>
+                    <p class="text-gray-500 mt-1 dark:text-neutral-400">
+                      - Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia, aliquid? <br>
+                      - Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                    </p>
+                    <a
+                      class="mt-2 inline-flex items-center justify-center gap-x-2 rounded-lg border border-transparent bg-blue-600 py-2 px-3 text-sm font-medium text-white hover:bg-blue-700 focus:bg-blue-700 focus:outline-none disabled:pointer-events-none disabled:opacity-50"
+                      href="#"
+                    >
+                      View
+                    </a>
+                  </div>
+                </div>
+                <div
+                  class="flex flex-col rounded-xl  bg-white shadow-sm dark:border-neutral-700 dark:bg-neutral-900 dark:shadow-neutral-700/70"
+                >
+                  <div class="p-4 md:p-5">
+                    <h3 class="text-gray-800 text-lg font-bold dark:text-white">
+                      Rentability
+                    </h3>
+                    <p class="text-gray-500 mt-1 dark:text-neutral-400">
+                      - Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia, aliquid? <br>
+                      - Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                    </p>
+                    <a
+                      class="mt-2 inline-flex items-center justify-center gap-x-2 rounded-lg border border-transparent bg-blue-600 py-2 px-3 text-sm font-medium text-white hover:bg-blue-700 focus:bg-blue-700 focus:outline-none disabled:pointer-events-none disabled:opacity-50"
+                      href="#"
+                    >
+                      View
+                    </a>
+                  </div>
+                </div>
+                <div
+                  class="flex flex-col rounded-xl  bg-white shadow-sm dark:border-neutral-700 dark:bg-neutral-900 dark:shadow-neutral-700/70"
+                >
+                  <div class="p-4 md:p-5">
+                    <h3 class="text-gray-800 text-lg font-bold dark:text-white">
+                      Rentability
+                    </h3>
+                    <p class="text-gray-500 mt-1 dark:text-neutral-400">
+                      - Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia, aliquid? <br>
+                      - Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                    </p>
+                    <a
+                      class="mt-2 inline-flex items-center justify-center gap-x-2 rounded-lg border border-transparent bg-blue-600 py-2 px-3 text-sm font-medium text-white hover:bg-blue-700 focus:bg-blue-700 focus:outline-none disabled:pointer-events-none disabled:opacity-50"
+                      href="#"
+                    >
+                      View
+                    </a>
+                  </div>
+                </div>
+                <div
+                  class="flex flex-col rounded-xl  bg-white shadow-sm dark:border-neutral-700 dark:bg-neutral-900 dark:shadow-neutral-700/70"
+                >
+                  <div class="p-4 md:p-5">
+                    <h3 class="text-gray-800 text-lg font-bold dark:text-white">
+                      Rentability
+                    </h3>
+                    <p class="text-gray-500 mt-1 dark:text-neutral-400">
+                      - Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia, aliquid? <br>
+                      - Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                    </p>
+                    <a
+                      class="mt-2 inline-flex items-center justify-center gap-x-2 rounded-lg border border-transparent bg-blue-600 py-2 px-3 text-sm font-medium text-white hover:bg-blue-700 focus:bg-blue-700 focus:outline-none disabled:pointer-events-none disabled:opacity-50"
+                      href="#"
+                    >
+                      View
+                    </a>
+                  </div>
+                </div>
+                <div
+                  class="flex flex-col rounded-xl  bg-white shadow-sm dark:border-neutral-700 dark:bg-neutral-900 dark:shadow-neutral-700/70"
+                >
+                  <div class="p-4 md:p-5">
+                    <h3 class="text-gray-800 text-lg font-bold dark:text-white">
+                      Rentability
+                    </h3>
+                    <p class="text-gray-500 mt-1 dark:text-neutral-400">
+                      - Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia, aliquid? <br>
+                      - Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                    </p>
+                    <a
+                      class="mt-2 inline-flex items-center justify-center gap-x-2 rounded-lg border border-transparent bg-blue-600 py-2 px-3 text-sm font-medium text-white hover:bg-blue-700 focus:bg-blue-700 focus:outline-none disabled:pointer-events-none disabled:opacity-50"
+                      href="#"
+                    >
+                      View
+                    </a>
+                  </div>
+                </div>
+                <div
+                  class="flex flex-col rounded-xl  bg-white shadow-sm dark:border-neutral-700 dark:bg-neutral-900 dark:shadow-neutral-700/70"
+                >
+                  <div class="p-4 md:p-5">
+                    <h3 class="text-gray-800 text-lg font-bold dark:text-white">
+                      Rentability
+                    </h3>
+                    <p class="text-gray-500 mt-1 dark:text-neutral-400">
+                      - Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia, aliquid? <br>
+                      - Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                    </p>
+                    <a
+                      class="mt-2 inline-flex items-center justify-center gap-x-2 rounded-lg border border-transparent bg-blue-600 py-2 px-3 text-sm font-medium text-white hover:bg-blue-700 focus:bg-blue-700 focus:outline-none disabled:pointer-events-none disabled:opacity-50"
+                      href="#"
+                    >
+                      View
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </main>
+        <!-- ===== Main Content End ===== -->
+      </div>
+      <!-- ===== Content Area End ===== -->
+    </div>
+    <!-- ===== Page Wrapper End ===== -->
+  </body>
+</html>
